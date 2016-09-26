@@ -16,3 +16,5 @@ __example__
 * 사람
 * 개
 * 원숭이
+
+![ㄷㅌ](http://ctgby.com/2013/10/injury_dog-bite/)
