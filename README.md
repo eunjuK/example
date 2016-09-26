@@ -30,3 +30,20 @@ __example__
 '<html>'
 text
 '</html>'
+
+
+
+
+~~~
+<html>
+ <header>
+ </header>
+ <body>
+ <p>test</p>
+ </body>
+</html>
+~~~
+
+
+
+
