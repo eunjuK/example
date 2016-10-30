@@ -209,7 +209,7 @@
 
 ### 2.6. W3C 문서 객체 모델
 - 2.6.1. 노드 인터페이스(Node Interface)
- - 모든 객체는 생성될 때 노드를 생성한다.
+> - 모든 객체는 생성될 때 노드를 생성한다.
  - 공백도 __node__이다. (text node)
  - 노드.nodeName
    + 노드의 이름을 반환
@@ -252,10 +252,10 @@
       </body>
     ```
 >> p : 부모 요소
->> strong(:first-child), how are you doing?(:last-child) : p의 자식요소
->> hello(:first-child) : strong의 자식노드
->> p, stron은 element node
->> hello, how are you doing?은 text node   
+>> strong(:first-child), how are you doing?(:last-child) : p의 자식요소 
+>> hello(:first-child) : strong의 자식노드 
+>> p, stron은 element node 
+>> hello, how are you doing?은 text node    
 
  - __아래는 크로스 브라우징이 안됨(IE 9+)
  - 노드.firstElementChild
