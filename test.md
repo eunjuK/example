@@ -250,6 +250,7 @@
           <p><strong>hello</strong>how are you doing</p>
         </body>
         ```
+>
 > \- p : 부모 요소 
 > \- strong(:first-child), how are you doing?(:last-child) : p의 자식요소 
 > \- hello(:first-child) : strong의 자식노드 
