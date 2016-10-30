@@ -272,7 +272,7 @@ console.log(dom_test_first.lastElementChild);
 console.log(dom_test_first.previousElementSibling);
 console.log(dom_test_first.nextElementSibling);
 ```
- - 노드 정보
+- 2.6.1. 노드 정보
    + nodeName / tagName / localName
       + nodeName
         + 노드의 이름 반환
