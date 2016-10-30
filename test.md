@@ -217,10 +217,10 @@
  - 노드.nodeType
    + 노드의 유형을 정수로 반환
  - type
-   - __1 : 요소노드__(document.ELEMENT_NODE)
-   - 2 : 속성노드(document.ATTRIBUTE_NODE)
-   - __3 : 텍스트 노드__(document.TEXT_NODE)
-   - 8 : 주석 노드(document.COMMENT_NODE)
+   + __1 : 요소노드__(document.ELEMENT_NODE)
+    + 2 : 속성노드(document.ATTRIBUTE_NODE)
+    + __3 : 텍스트 노드__(document.TEXT_NODE)
+    + 8 : 주석 노드(document.COMMENT_NODE)
  - 노드.nodeValue
    + 노드의 값을 반환
    + 요소는 값이 없으므로 null 반환
@@ -269,13 +269,13 @@
 
  __example : __
     
-      var dom_test_first = document.querySelector('#dom-test-first');
-      var dom_test_second = document.querySelector('#dom-test-second');
-      var dom_test_last = document.querySelector('#dom-test-last');
-      console.log(dom_test_first.firstElementChild);
-      console.log(dom_test_first.lastElementChild);
-      console.log(dom_test_first.previousElementSibling);
-      console.log(dom_test_first.nextElementSibling);
+       var dom_test_first = document.querySelector('#dom-test-first');
+       var dom_test_second = document.querySelector('#dom-test-second');
+       var dom_test_last = document.querySelector('#dom-test-last');
+       console.log(dom_test_first.firstElementChild);
+       console.log(dom_test_first.lastElementChild);
+       console.log(dom_test_first.previousElementSibling);
+       console.log(dom_test_first.nextElementSibling);
     
 - 2.6.1. 노드 정보
    + nodeName / tagName / localName
