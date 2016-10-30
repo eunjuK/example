@@ -244,7 +244,8 @@
 >      - 노드의 부모노드(요소)를 반환
 >      - parentNode가 모두 element이지는 않다. ->  document일 수 있다. 
 >
- __example__
+>
+ __example :__
 >
       ```
         <body>
@@ -273,7 +274,8 @@
 > - 노드.nextElementSibling
 >   + 노드의 다음 위치에 자리한 형제 요소노드를 반환
 >
- __example__
+>
+ __example :__
 >
     ```
       var dom_test_first = document.querySelector('#dom-test-first');
@@ -311,7 +313,7 @@
 > - xml과 DOM 방식의 차이점 __
 >   + input Element는 옛날 방식을 사용해서 가져와야 한다.
 >   + 새로 추가(정의)된 속성(ARIA속성, data-속성)은 >  getAttribute를 사용해서 가져와야 한다.
-
+>
 
 
 
