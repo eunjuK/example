@@ -9,16 +9,16 @@
 > 웹 브라우저의 정보를 가진 객체
 > - window.navigator.__platform__
 >    - OS 정보 확인
-    ```
-      // navigator 속성 보기
-      console.dir(global.navigator);
-      var navigator = global.navigator;
-      var platform = navigator.platform;
-      var is_mac = platform.toLowerCase().indexOf('mac') > -1;
-      var is_win = platform.toLowerCase().indexOf('win') > -1;
-      var html = window.document.documentElement;
-      html.className = is_mac ? 'mac' : 'win';
-    ```
+        ```
+          // navigator 속성 보기
+          console.dir(global.navigator);
+          var navigator = global.navigator;
+          var platform = navigator.platform;
+          var is_mac = platform.toLowerCase().indexOf('mac') > -1;
+          var is_win = platform.toLowerCase().indexOf('win') > -1;
+          var html = window.document.documentElement;
+          html.className = is_mac ? 'mac' : 'win';
+        ```
 > - window.navigator.__userAgent__
 >   + 사용자 에이전트의 식별자를 통해 기기 판별 응용  
 >
