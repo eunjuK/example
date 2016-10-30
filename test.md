@@ -278,29 +278,29 @@
        console.log(dom_test_first.nextElementSibling);
     
 - 2.6.1. 노드 정보
-   + nodeName / tagName / localName
-      + nodeName
-        + 노드의 이름 반환
-        + 대문자로 반환
-        + 표준
-      + tagName
-        + 비표준
-      + localName
-        + 소문자로 반환
-   + id
-      + 값 가져오기 및 설정 가능
-      + html에서만 가능(xml 사용 불가능)
-   + ClassName
-      + 값 가져오기 및 설정 가능
-   + title
-      + 값 가져오기 및 설정 가능
-   + nodeType
-   + nodeValue / data
-   + hasChildNodes()
-      + 자식의 유무를 boolean 값으로 반환
- - xml과 DOM 방식의 차이점 __
-   + input Element는 옛날 방식을 사용해서 가져와야 한다.
-   + 새로 추가(정의)된 속성(ARIA속성, data-속성)은 >  getAttribute를 사용해서 가져와야 한다.
+>   + nodeName / tagName / localName
+>      + nodeName
+>        + 노드의 이름 반환
+>        + 대문자로 반환
+>        + 표준
+>      + tagName
+>        + 비표준
+>      + localName
+>        + 소문자로 반환
+>   + id
+>      + 값 가져오기 및 설정 가능
+>      + html에서만 가능(xml 사용 불가능)
+>   + ClassName
+>      + 값 가져오기 및 설정 가능
+>   + title
+>      + 값 가져오기 및 설정 가능
+>   + nodeType
+>   + nodeValue / data
+>   + hasChildNodes()
+>      + 자식의 유무를 boolean 값으로 반환
+> - xml과 DOM 방식의 차이점 __
+>   + input Element는 옛날 방식을 사용해서 가져와야 한다.
+>   + 새로 추가(정의)된 속성(ARIA속성, data-속성)은 >  getAttribute를 사용해서 가져와야 한다.
 
 
 
