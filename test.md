@@ -244,7 +244,7 @@
 >      - 노드의 부모노드(요소)를 반환
 >      - parentNode가 모두 element이지는 않다. ->  document일 수 있다. 
 
- __example : __
+ __예 : __
 
       ```
         <body>
@@ -267,7 +267,7 @@
 > - 노드.nextElementSibling
 >   + 노드의 다음 위치에 자리한 형제 요소노드를 반환
 
- __example : __
+ __예 : __
 
       ```
         var dom_test_first = document.querySelector('#dom-test-first');
