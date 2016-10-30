@@ -133,7 +133,6 @@
           global.onload = stylingHashElement; //  1
         })(this);
       ```
-
 > - window.location.__host__
 >   + 도메인 명 반환
 > - window.location.__href__
