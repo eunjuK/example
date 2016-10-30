@@ -167,11 +167,14 @@
 
 ## 2. DOM(Document Object Model) : 문서 객체 모델
 ![DOM](DOM.png)
+
 문서(document)
 - 노드의 집합
 노드 트리
-- 루트 노드 - html: 노드의 시작
-- 노드: 연결망의 특정 지점
+- 루트 노드 = html
+  + 노드의 시작
+- 노드
+  + 연결망의 특정 지점
 
 ### 2.1. DOM Level 0
 > \- 초창기 문서객체 모델  
