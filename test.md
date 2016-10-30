@@ -244,16 +244,18 @@
 >      - 노드의 부모노드(요소)를 반환
 >      - parentNode가 모두 element이지는 않다. ->  document일 수 있다. 
 
+ __example : __
+
       ```
         <body>
           <p><strong>hello</strong>how are you doing</p>
         </body>
       ```
->> p : 부모 요소 
->> strong(:first-child), how are you doing?(:last-child) : p의 자식요소 
->> hello(:first-child) : strong의 자식노드 
->> p, strong은 element node 
->> hello, how are you doing?은 text node    
+>> \- p : 부모 요소 
+>> \- strong(:first-child), how are you doing?(:last-child) : p의 자식요소 
+>> \- hello(:first-child) : strong의 자식노드 
+>> \- p, strong은 element node 
+>> \- hello, how are you doing?은 text node    
 
 > - __아래는 크로스 브라우징이 안됨(IE 9+)
 > - 노드.firstElementChild
@@ -265,8 +267,9 @@
 > - 노드.nextElementSibling
 >   + 노드의 다음 위치에 자리한 형제 요소노드를 반환
 
-    __example : __
+ __example : __
 
+      ```
         var dom_test_first = document.querySelector('#dom-test-first');
         var dom_test_second = document.querySelector('#dom-test-second');
         var dom_test_last = document.querySelector('#dom-test-last');
@@ -274,6 +277,7 @@
         console.log(dom_test_first.lastElementChild);
         console.log(dom_test_first.previousElementSibling);
         console.log(dom_test_first.nextElementSibling);
+      ```
     
 - 2.6.1. 노드 정보
 >   + nodeName / tagName / localName
