@@ -245,6 +245,7 @@
 >      - parentNode가 모두 element이지는 않다. ->  document일 수 있다. 
 >
  __example__
+>
         ```
         <body>
           <p><strong>hello</strong>how are you doing</p>
