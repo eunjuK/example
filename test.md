@@ -246,16 +246,20 @@
 >
  __example__
 >
-        ```
+      ```
         <body>
           <p><strong>hello</strong>how are you doing</p>
         </body>
-        ```
+      ```
 >
-> \- p : 부모 요소 
+> \- p : 부모 요소
+>
 > \- strong(:first-child), how are you doing?(:last-child) : p의 자식요소 
+>
 > \- hello(:first-child) : strong의 자식노드 
+>
 > \- p, strong은 element node 
+>
 > \- hello, how are you doing?은 text node    
 >
 > - __아래는 크로스 브라우징이 안됨(IE 9+)
