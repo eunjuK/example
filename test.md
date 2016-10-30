@@ -78,10 +78,10 @@
 > - window.screen.__avail_left__
 >   + 사용 가능한 기준이 되는 left의 위치
 > - window.screen.__orientation__
-      - 모바일 등의 화면 회전, 기울기 등을 감지하는 정보 제공
-      - Desktop 등 orientation 미지원 상태에서는 angle값이 '0'으로 고정된다.
+>      - 모바일 등의 화면 회전, 기울기 등을 감지하는 정보 제공
+>      - Desktop 등 orientation 미지원 상태에서는 angle값이 '0'으로 고정된다.
 > - window.screen.__colorDepth__ / window.screen.__pixelDepth__
-      - 사용자 모니터가 표현 가능한 색상, 픽셀 정보 제공
+>      - 사용자 모니터가 표현 가능한 색상, 픽셀 정보 제공
 
 
 
