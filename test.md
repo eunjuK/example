@@ -8,7 +8,7 @@
 - 1.1.1. window.__navigator__
 > 웹 브라우저의 정보를 가진 객체
 > - window.navigator.__platform__
-    - OS 정보 확인
+>    - OS 정보 확인
     ```
       // navigator 속성 보기
       console.dir(global.navigator);
