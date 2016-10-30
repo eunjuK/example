@@ -285,7 +285,8 @@
       console.log(dom_test_first.nextElementSibling);
     ```
 >
->
+
+
 - 2.6.1. 노드 정보
 >   + nodeName / tagName / localName
 >      + nodeName
