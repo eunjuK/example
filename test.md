@@ -209,43 +209,43 @@
 
 ### 2.6. W3C 문서 객체 모델
 - 2.6.1. 노드 인터페이스(Node Interface)
-> - 모든 객체는 생성될 때 노드를 생성한다.
-> - 공백도 __node__이다. (text node)
-> - 노드.nodeName
->   + 노드의 이름을 반환
->   + 텍스트 노드의 경우 #text를 반환
-> - 노드.nodeType
->   + 노드의 유형을 정수로 반환
-> - type
->   + __1 : 요소노드__(document.ELEMENT_NODE)
->   + 2: 속성노드(document.ATTRIBUTE_NODE)
->   + __3: 텍스트 노드__(document.TEXT_NODE)
->   + 8: 주석 노드(document.COMMENT_NODE)
-> - 노드.nodeValue
->   + 노드의 값을 반환
->   + 요소는 값이 없으므로 null 반환
-> - 자식 노드 찾기
->   + 노드.children
->      - 모든 자식 노드
->   + 노드.childNodes
->      - 노드의 직계 자식노드들을 노드리스트(배열)로 반환
->   + 노드.firstChild
->      - 노드의 첫번째 자식노드를 반환
->   + 노드.lastChild
->      - 노드의 마지막 자식노드를 반환
->      - 노드.last[a.legnth - 1]
-> - 형제 노드 찾기
->   + 노드.previousSibling
->      - 노드의 이전 위치에 자리한 형제노드를 반환
->   + 노드.nextSibling
->      - 노드의 다음 위치에 자리한 형제노드를 반환
-> - 부모 노드 찾기
->   + 노드.parentNode
->      - 노드의 부모노드(요소)를 반환
->      - parentNode가 모두 element이지는 않다. ->  document일 수 있다.    
->   
-> __example : __   
->
+ - 모든 객체는 생성될 때 노드를 생성한다.
+ - 공백도 __node__이다. (text node)
+ - 노드.nodeName
+   + 노드의 이름을 반환
+   + 텍스트 노드의 경우 #text를 반환
+ - 노드.nodeType
+   + 노드의 유형을 정수로 반환
+ - type
+   + __1 : 요소노드__(document.ELEMENT_NODE)
+   + 2: 속성노드(document.ATTRIBUTE_NODE)
+   + __3: 텍스트 노드__(document.TEXT_NODE)
+   + 8: 주석 노드(document.COMMENT_NODE)
+ - 노드.nodeValue
+   + 노드의 값을 반환
+   + 요소는 값이 없으므로 null 반환
+ - 자식 노드 찾기
+   + 노드.children
+      - 모든 자식 노드
+   + 노드.childNodes
+      - 노드의 직계 자식노드들을 노드리스트(배열)로 반환
+   + 노드.firstChild
+      - 노드의 첫번째 자식노드를 반환
+   + 노드.lastChild
+      - 노드의 마지막 자식노드를 반환
+      - 노드.last[a.legnth - 1]
+ - 형제 노드 찾기
+   + 노드.previousSibling
+      - 노드의 이전 위치에 자리한 형제노드를 반환
+   + 노드.nextSibling
+      - 노드의 다음 위치에 자리한 형제노드를 반환
+ - 부모 노드 찾기
+   + 노드.parentNode
+      - 노드의 부모노드(요소)를 반환
+      - parentNode가 모두 element이지는 않다. ->  document일 수 있다.    
+   
+ __example : __   
+
     ```
       <body>
           <p><strong>hello</strong>how are you doing</p>
@@ -256,19 +256,19 @@
 >> hello(:first-child) : strong의 자식노드
 >> p, stron은 element node
 >> hello, how are you doing?은 text node   
->
-> - __아래는 크로스 브라우징이 안됨(IE 9+)
-> - 노드.firstElementChild
->   + 노드의 첫번째 자식 요소노드를 반환
-> - 노드.lastElementChild
->   + 노드의 마지막 자식 요소노드를 반환
-> - 노드.previousElementSibling
->   + 노드의 이전 위치에 자리한 형제 요소노드를 반환
-> - 노드.nextElementSibling
->   + 노드의 다음 위치에 자리한 형제 요소노드를 반환  
->
-> __example : __
->
+
+ - __아래는 크로스 브라우징이 안됨(IE 9+)
+ - 노드.firstElementChild
+   + 노드의 첫번째 자식 요소노드를 반환
+ - 노드.lastElementChild
+   + 노드의 마지막 자식 요소노드를 반환
+ - 노드.previousElementSibling
+   + 노드의 이전 위치에 자리한 형제 요소노드를 반환
+ - 노드.nextElementSibling
+   + 노드의 다음 위치에 자리한 형제 요소노드를 반환  
+
+__example : __
+
     ```
       var dom_test_first = document.querySelector('#dom-test-first');
       var dom_test_second = document.querySelector('#dom-test-second');
