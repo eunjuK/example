@@ -243,7 +243,7 @@
 >   + 노드.parentNode
 >      - 노드의 부모노드(요소)를 반환
 >      - parentNode가 모두 element이지는 않다. ->  document일 수 있다. 
-> __example__
+ __example__
         ```
         <body>
           <p><strong>hello</strong>how are you doing</p>
@@ -254,7 +254,7 @@
 > \- hello(:first-child) : strong의 자식노드 
 > \- p, strong은 element node 
 > \- hello, how are you doing?은 text node    
-
+>
 > - __아래는 크로스 브라우징이 안됨(IE 9+)
 > - 노드.firstElementChild
 >   + 노드의 첫번째 자식 요소노드를 반환
