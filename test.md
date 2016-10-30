@@ -269,7 +269,7 @@
 
 __example : __
 
-    ```
+    
       var dom_test_first = document.querySelector('#dom-test-first');
       var dom_test_second = document.querySelector('#dom-test-second');
       var dom_test_last = document.querySelector('#dom-test-last');
@@ -277,7 +277,7 @@ __example : __
       console.log(dom_test_first.lastElementChild);
       console.log(dom_test_first.previousElementSibling);
       console.log(dom_test_first.nextElementSibling);
-    ```
+    
     
 - 2.6.1. 노드 정보
    + nodeName / tagName / localName
