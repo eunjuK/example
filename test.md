@@ -243,7 +243,7 @@
 >   + 노드.parentNode
 >      - 노드의 부모노드(요소)를 반환
 >      - parentNode가 모두 element이지는 않다. ->  document일 수 있다. 
-
+>>
       ```
         <body>
           <p><strong>hello</strong>how are you doing</p>
