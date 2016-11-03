@@ -285,7 +285,7 @@
 
 		```html
 		    <button type="button" class="look-at-button">
-		    Look
+		   	Look
 		    </button>
 		```
 
@@ -412,13 +412,14 @@
 		     })(this);
 		</script>
 	```
+	
     	```html
 		<body>
 		    <div class="circle-50"></div>
 		    <div class="circle-100"></div>
 		    <div class="circle-1000"></div>
 		</body>
-		```
+	```
 
 - 포커스(Focus)
  - **window.onfocus**
