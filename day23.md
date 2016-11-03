@@ -9,219 +9,219 @@
 >  - **< element onclick = "fnName()">**
 >  - 예전방식이나 현재도 쓰고 있긴 함
 >  - 예시 )
-  >
-  >   - 인라인 스크립팅   
-  >
-    ```
-      <button onclick="window.alert('clicked button element.'); lang="en-US" type="button">
-         click me
-      </button>
-    ```
-    >> \- __단점:__ 위 코드방식으로 쓰면 코드가 길어지기 때문에 보기 불편해짐.
-    >>
+>
+>   - 인라인 스크립팅
+>
+        ```html
+            <button onclick="window.alert('clicked button element.'); lang="en-US" type="button">
+                click me
+            </button>
+        ```
+	>> \- __단점:__ 위 코드방식으로 쓰면 코드가 길어지기 때문에 보기 불편해짐.
+	>>
     >> \- __결론:__ 아래처럼 스크립팅을 분리하여 사용.
-
-    >   - 스크립팅 분리 1.
-    >
-    ```
-      <button onclick="clickButton()" lang="en-US" type="button">
-        click me
-      </button>
-    >
-      <script>
-        function clickButton() {
-          window.alert('clicked button element.');
-          if(this.firstChild.nodeValue === 'click me') {
-            this.firstChild.nodeValue = 'this is button. clicked!';
-          } else {
-            this.firstChild.nodeValue = 'click me';
-          }
-        }
-      </script>
-    ```
+>
+>   - 스크립팅 분리 1.
+>
+        ```html
+            <button onclick="clickButton()" lang="en-US" type="button">
+                click me
+            </button>
+        ```
+>
+        ```javascript
+            <script>
+                function clickButton() {
+                    window.alert('clicked button element.');
+                    if(this.firstChild.nodeValue === 'click me') {
+                        this.firstChild.nodeValue = 'this is button. clicked!';
+                    } else {
+                        this.firstChild.nodeValue = 'click me';
+                    }
+                }
+            </script>
+        ```
     >> \- __문제점:__ clickButton()에 매개변수로 this를 넣어주지 않으면 script함수에서 this는 window를 가리킴
     >>
     >> \- __결론:__ 아래방식으로 매개변수로 this를 넣어주자.
-
-  >   - 스크립팅 분리 2.
-  >
-    ```
-    <button onclick="clickButton(this)" lang="en-US" type="button">
-       click me
-    </button>
-    ```
-    >> \- 매개변수로 onclick을 가리키는 this를 넣어 줌
-  >
-    ```javascript
-    <script>
-        function clickButton(button) {
-          window.alert('clicked button element.');
-          if(button.firstChild.nodeValue === 'click me') {
-            button.firstChild.nodeValue = 'this is button. clicked!';
-          } else {
-            button.firstChild.nodeValue = 'click me';
-          }
-        }
-    </script>
-    ```
+>
+>   - 스크립팅 분리 2.
+>
+        ```html
+            <button onclick="clickButton(this)" lang="en-US" type="button">
+                click me
+            </button>
+        ```
+	>> \- 매개변수로 onclick을 가리키는 this를 넣어 줌
+>
+        ```javascript
+            <script>
+                function clickButton(button) {
+                    window.alert('clicked button element.');
+                    if(button.firstChild.nodeValue === 'click me') {
+                        button.firstChild.nodeValue = 'this is button. clicked!';
+                    } else {
+                        button.firstChild.nodeValue = 'click me';
+                    }
+                }
+            </script>
+        ```
     >> \- button이라는 매개변수로 onclick을 가리키는 this 값을 받아 사용
-
 
  - 스크립팅 분리 이벤트 추가
 >  - **el.onclick = fnNmae; or el.onclick = function(e) {...};**
 >  - 전통 방식 (현재 사용 방식)
 >  - 예시 )
 >
-  >   **방법 0. ES3**
-  >
+>   **방법 0. ES3**
+>
+    ```html
+        <button type="button" class="look-at-button">
+            Look
+        </button>
     ```
-      <button type="button" class="look-at-button">
-        Look
-      </button>
-    ```
-  >
+>
     ```javascript
-      <script>
-        function clickButton(button) {
-          window.alert('clicked button element.');
-          if(button.firstChild.nodeValue === 'click me') {
-            button.firstChild.nodeValue = 'this is button. clicked!';
-          } else {
-            button.firstChild.nodeValue = 'click me';
-          }
-        }
-  >
-        (function(global) {
-          'use strict';
-  >
-          var look_at_button = document.querySelector('.look-at-button');
-          look_at_button.onclick = clickButton;
-          }
-        })(this);
-      </script>
+        <script>
+            function clickButton(button) {
+                window.alert('clicked button element.');
+                if(button.firstChild.nodeValue === 'click me') {
+                    button.firstChild.nodeValue = 'this is button. clicked!';
+                } else {
+                    button.firstChild.nodeValue = 'click me';
+                }
+            }
+>
+            (function(global) {
+                'use strict';
+>
+                var look_at_button = document.querySelector('.look-at-button');
+                look_at_button.onclick = clickButton;
+            })(this);
+        </script>
     ```
-  >   **방법 1. ES5**
-  >
-    ```
-      <button type="button" class="look-at-button">
-        Look
-      </button>
+>
+>   **방법 1. ES5**
+>
+    ```html
+        <button type="button" class="look-at-button">
+            Look
+        </button>
     ```
   >> \- window = this /  look_at_button = argument
   >
     ```javascript
-    <script>
-      function clickButton(button) {
-        window.alert('clicked button element.');
-        if(button.firstChild.nodeValue === 'click me') {
-          button.firstChild.nodeValue = 'this is button. clicked!';
-        } else {
-          button.firstChild.nodeValue = 'click me';
-        }
-      }
-  >
-      (function(global) {
-        'use strict';
-  >
-        var look_at_button = document.querySelector('.look-at-button');
-        look_at_button.onclick = clickButton.bind(window, look_at_button);
-        }
-      })(this);
+        <script>
+            function clickButton(button) {
+                window.alert('clicked button element.');
+                if(button.firstChild.nodeValue === 'click me') {
+                    button.firstChild.nodeValue = 'this is button. clicked!';
+                } else {
+                    button.firstChild.nodeValue = 'click me';
+                }
+            }
+>
+            (function(global) {
+                'use strict';
+>
+                var look_at_button = document.querySelector('.look-at-button');
+                look_at_button.onclick = clickButton.bind(window, look_at_button);
+            })(this);
+        </script>
     ```
-  >   **방법 2.**
-  >
+>   **방법 2.**
+>
+    ```html
+        <button type="button" class="look-at-button">
+            Look
+        </button>
     ```
-    <button type="button" class="look-at-button">
-      Look
-    </button>
-    ```
-  >
+>
     ```javascript
-      <script>
-        function clickButton(button) {
-          window.alert('clicked button element.');
-          if(button.firstChild.nodeValue === 'click me') {
-            button.firstChild.nodeValue = 'this is button. clicked!';
-          } else {
-            button.firstChild.nodeValue = 'click me';
-          }
-        }
-  >
-        (function(global) {
-          'use strict';
-  >
-          var look_at_button = document.querySelector('.look-at-button');
-          look_at_button.onclick = function() {
-            window.clickButton(this);
-          };
-        })(this);
-      </script>
+        <script>
+            function clickButton(button) {
+                window.alert('clicked button element.');
+                    if(button.firstChild.nodeValue === 'click me') {
+                        button.firstChild.nodeValue = 'this is button. clicked!';
+                    } else {
+                        button.firstChild.nodeValue = 'click me';
+                    }
+                }
+>
+            (function(global) {
+                'use strict';
+>
+                var look_at_button = document.querySelector('.look-at-button');
+                look_at_button.onclick = function() {
+                    window.clickButton(this);
+                };
+            })(this);
+        </script>
     ```
   >> \- this = look_at_button
   >> \- 함수 지역 내에서 참조가 되지 않는 변수 or 함수는 암묵적으로 스코프 체이닝을 통해 상위 영역을 거슬러~ 거슬러~ 결국은! 전역까지 가서 전역 함수를 실행하게 됨
   >> \- window를 명시적으로 쓰지 않을 경우, 성능 이슈, 디버깅 이슈가 있으므로 명시적으로 써주도록하자.
-  >
-  >   **방법 3.**
-  >
+>
+>   **방법 3.**
+>
+    ```html
+        <button type="button" class="look-at-button">
+            Look
+        </button>
     ```
-    <button type="button" class="look-at-button">
-      Look
-    </button>
-    ```
-  >
+>
     ```javascript
-      <script>
-        function clickButton(button) {
-          if(this.nodeName.toLowerCase() === 'button' && (typeof button === 'object') {
-             button = this;
-          }
-  >
-          window.alert('clicked button element.');
-          if(button.firstChild.nodeValue === 'click me') {
-            button.firstChild.nodeValue = 'this is button. clicked!';
-          } else {
-            button.firstChild.nodeValue = 'click me';
-          }
-        }
-      </script>
+        <script>
+            function clickButton(button) {
+                if(this.nodeName.toLowerCase() === 'button' && (typeof button === 'object') {
+                    button = this;
+                }
+    >
+                window.alert('clicked button element.');
+                if(button.firstChild.nodeValue === 'click me') {
+                   button.firstChild.nodeValue = 'this is button. clicked!';
+                } else {
+                    button.firstChild.nodeValue = 'click me';
+                }
+            }
+        </script>
     ```
 
- - 스크립팅 분리 이벤트 제거
+- 스크립팅 분리 이벤트 제거
 >  - **el.onclick = null;**
 >  - 예시 )
 >
-  >
-    ```
-      <button type="button" class="look-at-button">
-        Look
-      </button>
+    ```html
+        <button type="button" class="look-at-button">
+            Look
+        </button>
     ```
   >
     ```javascript
-      <script>
-        (function(global) {
-          'use strict';
-  >
-          var look_at_button = document.querySelector('.look-at-button');
-  >
-          // 버튼을 몇 회 이상 클릭한 후에는 버튼을 사용자가 클릭할 수 없게 만들고자 한다.
-          // 버튼을 클릭한 횟수를 기억할 변수
-          var click_count = 0;
-  >
-          // [이벤트 연결] 이벤트 속성에 함수 값 연결
-          look_at_button.onclick = function() {
-            console.log('clicked:', this.onclick);
-            if( ++click_count === 2 ) {
-              // 클릭한 횟수가 2회가 되면 버튼을 사용자가 클릭할 수 없게 만든다.
-              // this.setAttribute('disabled', 'disabled');  // this = look_at_button
-  >
-              // [이벤트 제거] 이벤트 속성에 null 대입함으로 연결괸 함수를 끊음
-              this.onclick = null;  // 참조한 함수를 끊고 null 대입
-              console.log('finished:', this.onclick);
-            }
-          }
-        })(this);
-      </script>
+        <script>
+            (function(global) {
+                'use strict';
+    >
+                var look_at_button = document.querySelector('.look-at-button');
+    >
+                // 버튼을 몇 회 이상 클릭한 후에는 버튼을 사용자가 클릭할 수 없게 만들고자 한다.
+                // 버튼을 클릭한 횟수를 기억할 변수
+                var click_count = 0;
+    >
+                // [이벤트 연결] 이벤트 속성에 함수 값 연결
+                look_at_button.onclick = function() {
+                    console.log('clicked:', this.onclick);
+                    if( ++click_count === 2 ) {
+                        // 클릭한 횟수가 2회가 되면 버튼을 사용자가 클릭할 수 없게 만든다.
+                        // this.setAttribute('disabled', 'disabled');  // this = look_at_button
+        >
+                        // [이벤트 제거] 이벤트 속성에 null 대입함으로 연결괸 함수를 끊음
+                        this.onclick = null;  // 참조한 함수를 끊고 null 대입
+                        console.log('finished:', this.onclick);
+                    }
+                }
+            })(this);
+        </script>
     ```
 
 
@@ -231,31 +231,31 @@
 >    - DOM이 완성된 이후, 이벤트 감지
 >    - 늦게 실행 됨(이미지를 전부 불러와야 실행됨 )
 >    - 예시 )
->    
->   \*\* **init()** : 애플리케이션 초기화 (initialization()) 
+>
+>   \*\* **init()** : 애플리케이션 초기화 (initialization())
 >   \- 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행.
-	>
+>
+	    ```html
+            <button type="button" class="look-at-button">
+                Look
+            </button>
 	    ```
-		<button type="button" class="look-at-button">
-		    Look
-		</button>
-	    ```
-	>
+>
 		```javascript
-		<script>
-		    (function() {
-		      'use strict';
-	>
-		      /** @function init(): 애플리케이션 초기화 */
-		      function init() { ... }
-	>
-		      // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
-		      // 주의점!!
-		      // load 이벤트는 무척이나 느림!!! (특히! 이미지 개수가 많고, 용량이 큰 페이지)
-		      // 스크립트코드는 head에 load 이벤트를 쓰지말고 body 맨 마지막에 쓰는 것이 좋음.
-		      window.onload = init;
-		    })(this);
-		</script>
+            <script>
+                (function() {
+                  'use strict';
+>
+                  /** @function init(): 애플리케이션 초기화 */
+                  function init() { ... }
+>
+                  // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
+                  // 주의점!!
+                  // load 이벤트는 무척이나 느림!!! (특히! 이미지 개수가 많고, 용량이 큰 페이지)
+                  // 스크립트코드는 head에 load 이벤트를 쓰지말고 body 맨 마지막에 쓰는 것이 좋음.
+                  window.onload = init;
+                })(this);
+            </script>
 		```
 
 - 언로드(Un Load)
@@ -279,43 +279,43 @@
 >    - 비표준 문서(DOCtype 없는)
 >    	- document.body.clientWidth()
 >    - 예시 )
-	>
-			```html
-				<button type="button" class="look-at-button">
-				Look
-				</button>
-			```
-	>
-			```javascript
-				<script>
-				(function() {
-					'use strict';
-	>	
-					/** @function init(): 애플리케이션 초기화 */
-					function init() {
-					function clickButton(button) {
-					window.alert('clicked button element.');
-					if(button.firstChild.nodeValue === 'click me') {
-						button.firstChild.nodeValue = 'this is button. clicked!';
-					} else {
-						button.firstChild.nodeValue = 'click me';
-					}
-					}
-	 >
-					// window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
-					window.onresize = checkWindowResize;
-				}
-	 >
-				/** @functioncheckWindowResize */
-				function checkWindowResize() {
-					console.log('창(window)의 너비:', this.innerWidth);
-				}
-	 >
-				// 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
-					window.onload = init;
-				})(this);
-				</script>
-			```
+>
+        ```html
+            <button type="button" class="look-at-button">
+            Look
+            </button>
+        ```
+>
+        ```javascript
+            <script>
+            (function() {
+                'use strict';
+>
+                /** @function init(): 애플리케이션 초기화 */
+                function init() {
+                function clickButton(button) {
+                window.alert('clicked button element.');
+                if(button.firstChild.nodeValue === 'click me') {
+                    button.firstChild.nodeValue = 'this is button. clicked!';
+                } else {
+                    button.firstChild.nodeValue = 'click me';
+                }
+                }
+>
+                // window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
+                window.onresize = checkWindowResize;
+            }
+>
+            /** @functioncheckWindowResize */
+            function checkWindowResize() {
+                console.log('창(window)의 너비:', this.innerWidth);
+            }
+>
+            // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
+                window.onload = init;
+            })(this);
+            </script>
+        ```
 
 - 스크롤(Scroll)
 > - **window.onscroll**
@@ -326,99 +326,99 @@
 >  - *scrollY*
 >
 > - **parallax scroll native**
-	>
-		```css
-		<style media="screen">
-		    html {
-		      overflow-x: hidden;
-		     height: 300vh;
-		    }
-		    [class*="circle"] {
-		      opacity: 0;
-		      background: hsla(0, 0%, 0%, 0.6);
-		      border-radius: 50%;
-		    }
-		    .circle-50 {
-		      width: 50px;
-		      height: 50px;s
-		      background: hsla(0, 100%, 50%, 0.6);
-		    }
-		    .circle-100 {
-		      width: 100px;
-		      height: 100px;
-		    }
-		    .circle-1000 {
-		      width: 1000px;
-		      height: 1000px;
-		      background: hsla(0, 0%, 95%, 0.6)
-		    }
-		</style>
-		```
-	>
-		```javascript
-		<script>
-		    (function(){
-		      'use strict';
-	    >
-		      /** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
-		      function getRandomNumber(number) {
-			return Math.floor(Math.random() * number);
-		      }
-	    >
-		     // circle 객체 위치 임의 설정 함수
-		     function randomCirclePosition() {
-			 // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
-			 var circles = document.querySelectorAll('[class*="circle-"]');
-			 // console.log('circles:', circles);
-	    >
-			for( var i=0, l=circles.length; i<l; i++ ) {
-			    var circle = circles[i];
-			    // 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
-			    // 랜덤하게 화면의 곳곳에 배치(x, y)
-			    for ( var i=0, l=circles.length; i<l; i++ ) {
-				 var circle = circles[i];
-				 circle.style.position = 'absolute';
-				 circle.style.top = getRandomNumber( window.innerHeight ) + 'px';
-				 circle.style.left = getRandomNumber( window.innerWidth ) + 'px';
-				 circle.style.opacity = 1;
-			    }
-			}
-	    >
-			  // 패럴럭스 이벤트 제어 함수
-			  function circleParallaxScroll() {
-			      var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
-			      // circle 원을 각각 제어
-			      var circles = document.querySelectorAll('[class*="circle-"]');
-			      for ( var i=0, l=circles.length; i<l; i++ ) {
-				   var circle = circles[i];
-				   var top = parseInt(circle.style.top, 10);
-				   var x = 0.5 * i;
-				   if ( i === 1 ) { x = -1 * x * (i+1); }
-				   circle.style.top = top + (scroll_y/300 * x) + 'px';
-			      }
-			}
-	    >
-			 // 애플리케이션 초기화
-			 function init() {
-			      // circle 객체의 위치를 임의로 설정함수실행
-			      randomCirclePosition();
-			      // 스크롤 이벤트가 발생하면 각 객체의 위치를 조정
-			      window.onscroll = circleParallaxScroll;
-			 }
-	    >
-			 // window {} 객체의 load 이벤트가 발동(감지)되면, init() 함수 실행
-			 window.onload = init;
-		     })(this);
-		</script>
-		```
-	>
-		```html
-		<body>
-		  <div class="circle-50"></div>
-		  <div class="circle-100"></div>
-		  <div class="circle-1000"></div>
-		</body>
-		```
+>
+    ```css
+        <style media="screen">
+            html {
+              overflow-x: hidden;
+             height: 300vh;
+            }
+            [class*="circle"] {
+              opacity: 0;
+              background: hsla(0, 0%, 0%, 0.6);
+              border-radius: 50%;
+            }
+            .circle-50 {
+              width: 50px;
+              height: 50px;s
+              background: hsla(0, 100%, 50%, 0.6);
+            }
+            .circle-100 {
+              width: 100px;
+              height: 100px;
+            }
+            .circle-1000 {
+              width: 1000px;
+              height: 1000px;
+              background: hsla(0, 0%, 95%, 0.6)
+            }
+        </style>
+    ```
+>
+    ```javascript
+        <script>
+            (function(){
+              'use strict';
+>
+              /** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
+              function getRandomNumber(number) {
+            return Math.floor(Math.random() * number);
+              }
+>
+             // circle 객체 위치 임의 설정 함수
+             function randomCirclePosition() {
+             // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
+             var circles = document.querySelectorAll('[class*="circle-"]');
+             // console.log('circles:', circles);
+>
+            for( var i=0, l=circles.length; i<l; i++ ) {
+                var circle = circles[i];
+                // 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
+                // 랜덤하게 화면의 곳곳에 배치(x, y)
+                for ( var i=0, l=circles.length; i<l; i++ ) {
+                 var circle = circles[i];
+                 circle.style.position = 'absolute';
+                 circle.style.top = getRandomNumber( window.innerHeight ) + 'px';
+                 circle.style.left = getRandomNumber( window.innerWidth ) + 'px';
+                 circle.style.opacity = 1;
+                }
+            }
+>
+              // 패럴럭스 이벤트 제어 함수
+              function circleParallaxScroll() {
+                  var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
+                  // circle 원을 각각 제어
+                  var circles = document.querySelectorAll('[class*="circle-"]');
+                  for ( var i=0, l=circles.length; i<l; i++ ) {
+                   var circle = circles[i];
+                   var top = parseInt(circle.style.top, 10);
+                   var x = 0.5 * i;
+                   if ( i === 1 ) { x = -1 * x * (i+1); }
+                   circle.style.top = top + (scroll_y/300 * x) + 'px';
+                  }
+            }
+>
+             // 애플리케이션 초기화
+             function init() {
+                  // circle 객체의 위치를 임의로 설정함수실행
+                  randomCirclePosition();
+                  // 스크롤 이벤트가 발생하면 각 객체의 위치를 조정
+                  window.onscroll = circleParallaxScroll;
+             }
+>
+             // window {} 객체의 load 이벤트가 발동(감지)되면, init() 함수 실행
+             window.onload = init;
+             })(this);
+        </script>
+    ```
+>
+    ```html
+        <body>
+          <div class="circle-50"></div>
+          <div class="circle-100"></div>
+          <div class="circle-1000"></div>
+        </body>
+    ```
 
 - 포커스(Focus)
 > - **window.onfocus**
@@ -438,14 +438,14 @@
 > - 1회
 >  - 게임에서 한발자국 오른쪽으로 감
 > - 예시 )
-	>
-		```javascript
-		document.onkeydown = function(e) {
-			console.log('e.keyCode:', e.keyCode);
-			console.log('e.shiftKey:', e.shiftKey );
-			console.log('e.ctrlKey:', e.ctrlKey );
-		}
-		```
+>
+    ```javascript
+        document.onkeydown = function(e) {
+            console.log('e.keyCode:', e.keyCode);
+            console.log('e.shiftKey:', e.shiftKey );
+            console.log('e.ctrlKey:', e.ctrlKey );
+        }
+    ```
 
 - 키 프레스(Key press)
 > - **element.onkeypress**
@@ -667,7 +667,7 @@
                           // this: 함수 호출에서의 this = window
                           // button: 이벤트 핸들러를 호출한 객체 참조 = look_at_button
                           window.alert('clicked button element.');
-            >
+>
                           if(button.firstChild.nodeValue === 'click me') {
                                button.firstChild.nodeValue = 'this is button. clicked!';
                           } else {
@@ -675,13 +675,13 @@
                           }
                      }
                 </script>
-            >
+>
                 <script>
                      (function(global) {
                           'use strict';
-            >
+>
                           var look_at_button = document.querySelector('.look-at-button');
-            >
+>
                           look_at_button.onclick = function() {
                                // this = look_at_button
                                window.clickButton(this);
