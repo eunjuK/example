@@ -419,19 +419,19 @@
         </body>
 	```
 
- - 포커스(Focus)
+- 포커스(Focus)
 > - **window.onfocus**
 >  - 요소가 포커스 되었을 때, 이벤트 감지
 >  - 예전에는 악용되어 사용되기도 함
 
- - 블러(Blur)
+- 블러(Blur)
 > - **window.onblur**
 > 	- 요소가 블러 되었을 때, 이벤트 감지
 
 
 
 ##### 1.1.3. 키(Key) 이벤트
- - 키 다운(Key down)
+- 키 다운(Key down)
 > - **element.onkeydown**
 > - 사용자가 키를 누른 순간 이벤트 감지
 > - 1회
@@ -515,92 +515,325 @@
 
 - 자바스크립트의 이벤트 시스템은 스레드를 전혀 사용하지 않는 **완벽한 비동기 방식**으로 작동.
 > - if (스레드 방식 언어)
-   - 페이지가 로딩되기를 수시로 확인하다가 페이지가 로딩되면 일을 시작하는 방식
-   - But.!
-   - 자바스크립트 루프는 블로킹 방식이라 루프가 끝날 때까지 다른 일을 할 수 없다.
- - **동기(Synchronous)**
-  - 함수가 호출된 후 끝날 때까지 다음 구문을 실행하지 않고 대기.
-  - 요청과 그 결과가 동시에 일어남
-   - 시간이 얼마가 걸리든 요청한 그 자리에서 결과를 주겠다!
-  - **비동기(Asynchronous)**
-   - 함수가 호출된 후 끝날 때까지 기다리지 않고 바로 다음 구문 실행.
-     - 동작하고 있을 때 다른 동작도 가능
-    - 요청과 그 결과가 동시에 일어나지 않음
-     - 이따가 결과 줄게.
-  - **비동기 콜백 방식**
-   - 사용자가 원하는 시점에 실행될 코드(함수)를 수시로 **1회 호출**
+>   - 페이지가 로딩되기를 수시로 확인하다가 페이지가 로딩되면 일을 시작하는 방식
+>   - But.!
+>   - 자바스크립트 루프는 블로킹 방식이라 루프가 끝날 때까지 다른 일을 할 수 없다.
+> - **동기(Synchronous)**
+>  - 함수가 호출된 후 끝날 때까지 다음 구문을 실행하지 않고 대기.
+>  - 요청과 그 결과가 동시에 일어남
+>   - 시간이 얼마가 걸리든 요청한 그 자리에서 결과를 주겠다!
+>  - **비동기(Asynchronous)**
+>   - 함수가 호출된 후 끝날 때까지 기다리지 않고 바로 다음 구문 실행.
+>     - 동작하고 있을 때 다른 동작도 가능
+>    - 요청과 그 결과가 동시에 일어나지 않음
+>     - 이따가 결과 줄게.
+>  - **비동기 콜백 방식**
+>   - 사용자가 원하는 시점에 실행될 코드(함수)를 수시로 **1회 호출**
 
 - 자바스크립트의 이벤트는 두 단계에 걸쳐 실행!
-
-![bubble-capture](bubble-capture.png)
-
-  - **캡쳐(Capture)**
->   - 자식에서 부모로 이벤트 전달
+>![bubble-capture](bubble-capture.png)
+>  - **캡쳐(Capture)**
+>   - **부모에서 자식으로** 이벤트 전달
 >   - 클릭가능 유형이 겹칠때 이벤트가 전파됨
-
-![capture](http://take.ms/uYqzK)
-
-- **버블(Bubble)**
-> - 자식에서 부모로 이벤트 전달
- - 구형은 Bubble (IE 6-8)만 지원
- - MS는 비표준 (IE 9+ 지원)
- - 우리나라는 IE 를 사용하고있기 때문에 대부분 버블을 사용
- - this
-   - event.currentTarget과 비슷
- - event.target
-   - 클릭한 타켓 값 반환
- - event.currentTarget
-   - 현재 이벤트가 머물러 있는 값 반환
-   - 이벤트가 흐르는 와중에 현재 누구를 가르키고있는지 알려줌
-  - 헷갈리면 this를 사용
-
-![bubble](bubble.png)
+>![capture](http://take.ms/uYqzK)
+>  - **버블(Bubble)**
+> - **자식에서 부모로** 이벤트 전달
+> - 구형은 Bubble (IE 6-8)만 지원
+> - MS는 비표준 (IE 9+ 지원)
+> - 우리나라는 IE 를 사용하고있기 때문에 대부분 버블을 사용
+> - this
+>   - event.currentTarget과 비슷
+> - event.target
+>     - 클릭한 타켓 값 반환
+> - event.currentTarget
+>     - 현재 이벤트가 머물러 있는 값 반환
+>     - 이벤트가 흐르는 와중에 현재 누구를 가르키고있는지 알려줌
+>     - 헷갈리면 this를 사용
+>
+>![bubble](bubble.png)
 
 - W3C vs MS
- - W3C
-   - 이벤트 모델 - 추가
-     - .addEventListner(event_type, event_handler, capture');
-     - capture: false(기본값)
-     - bubble: true
+> - W3C
+>   - 이벤트 모델 - 추가
+>     - **.addEventListner(event_type, event_handler, capture');**
+>     - capture: false(기본값)
+>     - bubble: true
+>     - 예시 )
+>
+	```javascript
+    	for ( var i=0, l=boxs.length; i<l; i++ ) {
+           boxs[i].addEventListener('click', function(event){
+              console.log('this:', this);
+              console.log('event.target:', event.target);
+>
+              if ( event.target.className.indexOf('parent') > -1 ) { ... }
+              console.log('event.currentTarget:', event.currentTarget);
+              console.log('%c------------------------------', 'color: #3d9a21');
+           }, false);
+        }
+    ```
+>
+>   - 이벤트 모델 - 제거
+>    - **.removeEventListener('type', handler, false);**
+> - MS
+>  - 이벤트 모델 - 추가
+>    - **.attachEvent('on'+'type', handler);**
+>    - 예시 )
+>
+	```javascript
+    	var target = boxs.item(boxs.length - 1);
+        var ecent_type = 'mouseover';
+>
+        var fnA = function(e) {
+           e = e || window.event;
+           e.target = e.target || e.srcElement;
+           console.log('A');
+           console.log('this:', this);
+        };
+        var fnB = function() {
+           console.log('B');
+           console.log('this:', this);
+        };
+>
+        target.attachEvent('on'+event_type, fnA);
+        target.attachEvent('on'+event_type, fnB);
+    ```
+>
+>  - 이벤트 모델 - 제거
+>    - **.detachEvent('on' +'type', handler);**
+>
+> - 자바스크립트의 이벤트 객체(이벤트가 발생한 대상)에 접근하는 방법!
+>  - W3C
+>    - **e**
+>      - 이벤트 처리기(함수)에서 이벤트 객체를 참조하는 전달인자를 받음
+>      - 표준 방식
+>    - MS
+>      - **window.event**
+>        - IE는 단 하나의 전역(window) 이벤트 객체(target)만 존재
+>        - 비표준 형식
+>    - 크로스 브라우저 이벤트 객체 처리방법
+>      - 1.
+>
+            ```javascript
+                element.onclick = function(e) {
+                    if(window.event) e = window.event;
+                    return e.keyCode;
+                }
+            ```
+>
+>      - 2.
+>
+            ```javascript
+                element.onclick = function(e) {
+                   e = e || window.event;
+                   return e.keyCode;
+                }
+            ```
+>
+>      - 이벤트 타입(현재 처리중인 이벤트의 이름)
+>        - **e.type**
+>      - 이벤트 타겟(이벤트를 구동시킨 요소 참조)
+>        - **e.target**
+>
+            ```javascript
+                var fnA = function(e) {
+                   e = e || window.event;
+                   e.target = e.target || e.srcElement;
+                   console.log('A');
+                   console.log('this:', this);
+                };
+            ```
+>
+>      - 이벤트 관계요소(마우스 이벤트 시, 이전 객체 참조)
+>
+            ```javascript
+                document.ondblclick = function(e) {
+                   e = e || window.event;
+                   type = e.type;
+                   if(type === 'mouseover' || type === 'mouseout') {
+                      if(!e.relatedTarget) {
+                         e.relatedTarget = (type === 'mouseover') ? e.fromElement : e.toElement;
+                      };
+                   };
+                };
+            ```
+>
+>      - this가 가리키는 참조 객체
+>
+            ```javascript
+                <script>
+                     function clickButton(button) {
+                          // this: 함수 호출에서의 this = window
+                          // button: 이벤트 핸들러를 호출한 객체 참조 = look_at_button
+                          window.alert('clicked button element.');
+            >
+                          if(button.firstChild.nodeValue === 'click me') {
+                               button.firstChild.nodeValue = 'this is button. clicked!';
+                          } else {
+                               button.firstChild.nodeValue = 'click me';
+                          }
+                     }
+                </script>
+            >
+                <script>
+                     (function(global) {
+                          'use strict';
+            >
+                          var look_at_button = document.querySelector('.look-at-button');
+            >
+                          look_at_button.onclick = function() {
+                               // this = look_at_button
+                               window.clickButton(this);
+                          };
+                     })(this);
+                </script>
+            ```
+>
+> - 자바스크립트의 이벤트 버블 취소
+>  - 이벤트 전파 차단
+>    - 이벤트 부모 요소로 더이상 전파되지 않도록 차단
+>	![이벤트 전파 차단](spread.png)
+>  - W3C
+>    - **e.stopPropagation()**
+>    - 표준 방식
+>    - 전파의 흐름을 멈춤
+>  - MS
+>    - **window.event.cancelBubble = true**
+>    - 비표준 형식
+>    - 버블을 취소
+>  - 크로스 브라우저 이벤트 버블링 멈추는 방법
+>
+        ```javascript
+            function stopBubble(e) {
+               e = e || window.event;
+               if(window.event) {
+                  e.cancelBubble = true;
+               } else {
+                  e.stopPropagation();
+               }
+            }
+        ```
+>
+>    - 동적 애플리케이션을 개발할 때나 다룰 수 있을 정도.
+>
+> - 자바스크립트의 브라우저 기본 동작을 멈추는 방법
+>  - 브라우저의 기본 동작 차단
+>    - 기본적으로 브라우저가 수행하는 동작을 멈춤
+>    ![브라우저의 기본 동작 차단](stop_browserActive.png)
+>  - W3C
+>    - **e.preventDefault()**
+>    - 표준 방식
+>    - 기본동작을 막음
+>  - MS
+>    - **window.event.returnValue = false**
+>    - 비표준 방식
+>    - 결과값을 거짓이라고 전달
+>  - 크로스 브라우저 이벤트 버블링 멈추는 방법
+>
+        ```javascript
+            function stopDefault(e) {
+               e = e || window.event;
+               if(window.event) {
+                  e.returnValue = false;
+               } else {
+                  e.stopPreventDefault();
+               }
+               return false;
+            }
+        ```
+>
+>    - return을 만나면 바로 종료하기 때문에 stopDefault() 함수는 맨 마지막에 불러와야 함.
+>
+>  - 이벤트 처리기(함수)를 요소(엘리먼트)에 연결 방법
+>    - **첫번째. el.onclick = fnNmae; or el.onclick = function(e) {...};**
+>      - **장점**
+>        - 매우 간단한 방법으로 크로스 브라우징 보장
+>        - this 콘텍스트가 현재 요소(엘리먼트)를 참조
+>      - **단점**
+>        - 오직 이벤트 버블(Bubble) 단계만 처리
+>        - 하나의 이벤트 리스너에 하나의 이벤트 처리기만 연결 가능
+>        - 이벤트 객체(e)는 IE 브라우저에서 사용할 수 없음.
+>    - **두번째. .addEventListner(event_type, event_handler, capture');**
+>      - **장점**
+>        - 캡쳐와 버블 단계를 모두 지원
+>        - 이벤트 처리기(함수) 내부에서 this 콘텍스트는 현재 요소(엘리먼트) 참조
+>        - 이벤트 객체는 처리기(함수)의 첫번째 전달인자(e)를 참조
+>        - 요소(엘리먼트)에 다수의 이벤트 처리기를 연결 가능
+>      - **단점**
+>        - IE 8이하에서는 동작하지 않음
+>    - **세번째. .attachEvent('on'+'type', handler);**
+>      - **장점**
+>        - 요소(엘리먼트)에 다수의 이벤트 처리기 연결 가능
+>      - **단점**
+>        - 이벤트 버블(bubble)만 지원
+>        - 이벤트 리스너 함수 내에서 this 콘텍스트는 현재 요소(엘리먼트)가 아닌 window.
+>        - 이벤트 객체는 오직 window.event 전달인자를 통해서만 사용 가능
+>        - 이벤트 이름을 'on-type' 형식으로만 지정 가능
+>        - 오직 IE에서만 동작
+>
+>  - 크로스 브라우징을 보장하는 진보적 이벤트 처리 방법
+>
+        ```javascript
+            function addEvent(element, type, fn, phase) {
+               phase = phase || false;
+               if(window.event) {
+                  element.attachEvent('on' + type, fn);
+               } else {
+                  element.addEventListener(tpye, fn, phase);
+               }
+            };
+        ```
+>
+        ```javascript
+            function removeEvent(element, thpe, fn, phase) {
+               phase = phase || false;
+               if(window.event) {
+                  element.detachEvent('on'+type, fn);
+               } else {
+                  element.removeEventListener(type, fn, phase);
+               }
+            };
+        ```
+>
 
 ----
 
 ##### Math
- - Math.random()
- 	- 랜덤하게 0~1 사이의 실수를 난수로 반환.
- 	- Math.random(10) 형식으로 사용하면 안됨.
- 	- Math.random() * 10 형식으로 사용해야 함.
- - Math.floor()
- 	- 내림
- - Math.round()
- 	- 반올림
- - Math.ceil()
- 	- 올림
- - Math.floor( Math.random() * 10 ) : 10까지 랜덤으로 숫자를 반환하게 해줄 수 있음
+> - Math.random()
+> 	- 랜덤하게 0~1 사이의 실수를 난수로 반환.
+> 	- Math.random(10) 형식으로 사용하면 안됨.
+> 	- Math.random() * 10 형식으로 사용해야 함.
+> - Math.floor()
+> 	- 내림
+> - Math.round()
+> 	- 반올림
+> - Math.ceil()
+> 	- 올림
+> - Math.floor( Math.random() * 10 ) : 10까지 랜덤으로 숫자를 반환하게 해줄 수 있음
 
 
 ##### Width 차이점
- - **screenWidth()**: 모니터 기준
- - **screenAvailWidth()**: 작업표시줄을 제외한 모니터 기준(가용가능범위)
- - **innerWidth()**: 브라우저 창 기준
+> - **screenWidth()**: 모니터 기준
+> - **screenAvailWidth()**: 작업표시줄을 제외한 모니터 기준(가용가능범위)
+> - **innerWidth()**: 브라우저 창 기준
 
 ##### Function.prototype 객체의 능력(Methods)
- \- 함수 객체의 메소드
- \- 함수를 실행할 때 this가 참조하는 객체랑 전달인자를 임의로 설정할 때 유용
-
- \* context: this  / look_at_button: 전달인자
- - __ES 3__
- - Function.prototype.__call__(context, look_at_button, ...)
-   - 함수의 this와 객체를 연결하여 함수의 return 값을 반환
-   - 함수 실행함과 동시에 바로 실행
- - Function.prototype.__apply__
-
- - __ES 5__
-  - Function.prototype.__bind__(context, look_at_button, ...)
-    - 함수의 this와 객체를 연결하여 다시 그 함수를 반환
-    - 나중에 호출했을 때 실행
+> \- 함수 객체의 메소드
+> \- 함수를 실행할 때 this가 참조하는 객체랑 전달인자를 임의로 설정할 때 유용
+>
+> \* context: this  / look_at_button: 전달인자
+> - __ES 3__
+> - Function.prototype.__call__(context, look_at_button, ...)
+>   - 함수의 this와 객체를 연결하여 함수의 return 값을 반환
+>   - 함수 실행함과 동시에 바로 실행
+> - Function.prototype.__apply__
+>
+> - __ES 5__
+>  - Function.prototype.__bind__(context, look_at_button, ...)
+>    - 함수의 this와 객체를 연결하여 다시 그 함수를 반환
+>    - 나중에 호출했을 때 실행
 
 
 #### 금요일 예고편@_@
- - constructor
- - prototype
+> - constructor
+> - prototype
