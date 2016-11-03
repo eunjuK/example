@@ -279,43 +279,43 @@
 >    - 비표준 문서(DOCtype 없는)
 >    	- document.body.clientWidth()
 >    - 예시 )
-	>
-		```html
-		    <button type="button" class="look-at-button">
-			Look
-		    </button>
-		```
-	>
-		```javascript
-		    <script>
-			(function() {
-			    'use strict';
-	>	
-			    /** @function init(): 애플리케이션 초기화 */
-			    function init() {
-				function clickButton(button) {
-				window.alert('clicked button element.');
-				if(button.firstChild.nodeValue === 'click me') {
-				    button.firstChild.nodeValue = 'this is button. clicked!';
-				} else {
-				    button.firstChild.nodeValue = 'click me';
+		>
+			```html
+				<button type="button" class="look-at-button">
+				Look
+				</button>
+			```
+		>
+			```javascript
+				<script>
+				(function() {
+					'use strict';
+		>	
+					/** @function init(): 애플리케이션 초기화 */
+					function init() {
+					function clickButton(button) {
+					window.alert('clicked button element.');
+					if(button.firstChild.nodeValue === 'click me') {
+						button.firstChild.nodeValue = 'this is button. clicked!';
+					} else {
+						button.firstChild.nodeValue = 'click me';
+					}
+					}
+		 >
+					// window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
+					window.onresize = checkWindowResize;
 				}
-			    }
-   	 >
-			    // window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
-			    window.onresize = checkWindowResize;
-			}
-   	 >
-			/** @functioncheckWindowResize */
-			function checkWindowResize() {
-			    console.log('창(window)의 너비:', this.innerWidth);
-			}
-   	 >
-			// 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
-			    window.onload = init;
-			})(this);
-		    </script>
-		```
+		 >
+				/** @functioncheckWindowResize */
+				function checkWindowResize() {
+					console.log('창(window)의 너비:', this.innerWidth);
+				}
+		 >
+				// 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
+					window.onload = init;
+				})(this);
+				</script>
+			```
 
 - 스크롤(Scroll)
 > - **window.onscroll**
@@ -438,14 +438,14 @@
 > - 1회
 >  - 게임에서 한발자국 오른쪽으로 감
 > - 예시 )
->
-	```javascript
-    document.onkeydown = function(e) {
-        console.log('e.keyCode:', e.keyCode);
-        console.log('e.shiftKey:', e.shiftKey );
-        console.log('e.ctrlKey:', e.ctrlKey );
-}
-    ```
+	>
+		```javascript
+		document.onkeydown = function(e) {
+			console.log('e.keyCode:', e.keyCode);
+			console.log('e.shiftKey:', e.shiftKey );
+			console.log('e.ctrlKey:', e.ctrlKey );
+		}
+		```
 
 - 키 프레스(Key press)
 > - **element.onkeypress**
