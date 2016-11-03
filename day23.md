@@ -109,7 +109,7 @@
 			</button>
 		```
   >> \- window = this /  look_at_button = argument
-  >
+>
 		```javascript
 			<script>
 				function clickButton(button) {
