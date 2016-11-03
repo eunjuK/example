@@ -12,11 +12,11 @@
 >
 >   - 인라인 스크립팅
 >
-      ```html
-          <button onclick="window.alert('clicked button element.'); lang="en-US" type="button">
-              click me
-          </button>
-      ```
+		```html
+			<button onclick="window.alert('clicked button element.'); lang="en-US" type="button">
+				click me
+			</button>
+		```
 >
 	>> \- __단점:__ 위 코드방식으로 쓰면 코드가 길어지기 때문에 보기 불편해짐.
 	>>
