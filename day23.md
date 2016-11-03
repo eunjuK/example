@@ -238,28 +238,28 @@
    \*\* **init()** : 애플리케이션 초기화 (initialization())
    \- 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행.
 
-	    ```html
-		<button type="button" class="look-at-button">
-			Look
-		</button>
-	    ```
+    ```html
+	<button type="button" class="look-at-button">
+		Look
+	</button>
+    ```
 
-		```javascript
-            <script>
-                (function() {
-                  'use strict';
+	```javascript
+    <script>
+	(function() {
+	  'use strict';
 
-                  /** @function init(): 애플리케이션 초기화 */
-                  function init() { ... }
+	  /** @function init(): 애플리케이션 초기화 */
+	  function init() { ... }
 
-                  // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
-                  // 주의점!!
-                  // load 이벤트는 무척이나 느림!!! (특히! 이미지 개수가 많고, 용량이 큰 페이지)
-                  // 스크립트코드는 head에 load 이벤트를 쓰지말고 body 맨 마지막에 쓰는 것이 좋음.
-                  window.onload = init;
-                })(this);
-            </script>
-		```
+	  // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
+	  // 주의점!!
+	  // load 이벤트는 무척이나 느림!!! (특히! 이미지 개수가 많고, 용량이 큰 페이지)
+	  // 스크립트코드는 head에 load 이벤트를 쓰지말고 body 맨 마지막에 쓰는 것이 좋음.
+	  window.onload = init;
+	})(this);
+    </script>
+	```
 
 - 언로드(Un Load)
  - **windo.onunload**
