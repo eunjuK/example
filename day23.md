@@ -54,18 +54,18 @@
         ```
 	>> \- 매개변수로 onclick을 가리키는 this를 넣어 줌
 >
-        ```javascript
-            <script>
-                function clickButton(button) {
-                    window.alert('clicked button element.');
-                    if(button.firstChild.nodeValue === 'click me') {
-                        button.firstChild.nodeValue = 'this is button. clicked!';
-                    } else {
-                        button.firstChild.nodeValue = 'click me';
-                    }
-                }
-            </script>
-        ```
+			```javascript
+				<script>
+					function clickButton(button) {
+						window.alert('clicked button element.');
+						if(button.firstChild.nodeValue === 'click me') {
+							button.firstChild.nodeValue = 'this is button. clicked!';
+						} else {
+							button.firstChild.nodeValue = 'click me';
+						}
+					}
+				</script>
+			```
     >> \- button이라는 매개변수로 onclick을 가리키는 this 값을 받아 사용
 
  - 스크립팅 분리 이벤트 추가
