@@ -226,7 +226,7 @@
 
 
 ##### 1.1.2. 인터페이스(Interface) 이벤트
- - 로드(Load)
+- 로드(Load)
 >	- **window.onload**
 >    - DOM이 완성된 이후, 이벤트 감지
 >    - 늦게 실행 됨(이미지를 전부 불러와야 실행됨 )
@@ -258,17 +258,17 @@
     	</script>
 	```
 
- - 언로드(Un Load)
+- 언로드(Un Load)
 > - **windo.onunload**
 > - 창이 닫히는 순간, 이벤트 감지
 
- - 에러(Error)
+- 에러(Error)
 > - **window.onerror**
 > - 오류가 발생되었을 때, 이벤트 감지
 > - Image Error
 > 	- 이미지 호출 시 에러 발생시, 이를 체크
 
- - 리사이즈(Resize)
+- 리사이즈(Resize)
 >	- **window.onresize**
 > 	- 창의 크기가 변경될 때, 이벤트 감지
 > 	- load할 때도 실행시켜 줘야함
@@ -316,8 +316,6 @@
                     })(this);
                 </script>
             ```
->
-
 
 - 스크롤(Scroll)
 > - **window.onscroll**
@@ -326,7 +324,7 @@
 >  - *scrollTo(xpos, ypos)*
 >  - *scrollX*
 >  - *scrollY*
->  
+>
 > - **parallax scroll native**
 	```css
         <style media="screen">
