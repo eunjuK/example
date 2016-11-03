@@ -316,7 +316,6 @@
                     })(this);
                 </script>
             ```
-
 - 스크롤(Scroll)
 > - **window.onscroll**
 >  - 스크롤 되는 순간, 이벤트 감지
