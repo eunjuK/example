@@ -315,7 +315,7 @@
 				window.onload = init;
 			})(this);
 		</script>
-    ```
+	```
 
  - 스크롤(Scroll)
 > - **window.onscroll**
