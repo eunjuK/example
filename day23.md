@@ -188,6 +188,7 @@
               }
           </script>
       ```
+>
 
 - 스크립팅 분리 이벤트 제거
 >  - **el.onclick = null;**
@@ -225,7 +226,6 @@
             })(this);
         </script>
     ```
->
 
 ##### 1.1.2. 인터페이스(Interface) 이벤트
 - 로드(Load)
@@ -238,9 +238,9 @@
 >   \- 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행.
 >
 	    ```html
-            <button type="button" class="look-at-button">
-                Look
-            </button>
+		<button type="button" class="look-at-button">
+			Look
+		</button>
 	    ```
 >
 		```javascript
