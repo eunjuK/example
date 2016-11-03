@@ -7,8 +7,10 @@
 ##### 1.1.1. 스크립팅
  - 인라인 스크립팅 이벤트 추가
 >  - < element onclick = "fnName()">
->  - 예전방식 (현재도 쓰고 있긴 함)
+>  - 예전방식이나 현재도 쓰고 있긴 함
 >  - 예시 )
+  >
+  >   - 인라인 스크립팅
   >
     ```
       <button onclick="window.alert('clicked button element.'); lang="en-US" type="button">
@@ -19,7 +21,7 @@
     >>
     >> \- __결론:__ 아래처럼 스크립팅을 분리하여 사용.
 
-    > - 스크립팅 분리 1.
+    >   - 스크립팅 분리 1.
     >
     ```
       <button onclick="clickButton()" lang="en-US" type="button">
@@ -41,7 +43,7 @@
     >>
     >> \- __결론:__ 아래방식으로 매개변수로 this를 넣어주자.
 
-  > - 스크립팅 분리 2.
+  >   - 스크립팅 분리 2.
   >
     ```
     <button onclick="clickButton(this)" lang="en-US" type="button">
