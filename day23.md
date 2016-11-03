@@ -326,6 +326,7 @@
 >  - *scrollY*
 >
 > - **parallax scroll native**
+>
 	```css
         <style media="screen">
             html {
