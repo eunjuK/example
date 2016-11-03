@@ -193,7 +193,7 @@
   - **el.onclick = null;**
   - 예시 )
 >
-> ```html
+	```html
         <button type="button" class="look-at-button">
             Look
         </button>
