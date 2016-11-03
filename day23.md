@@ -577,7 +577,7 @@
 			```
 >
 >    - 이벤트 모델 - 제거
->    - **.removeEventListener('type', handler, false);**
+>     - **.removeEventListener('type', handler, false);**
 >- MS
 >  - 이벤트 모델 - 추가
 >    - **.attachEvent('on'+'type', handler);**
