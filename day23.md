@@ -12,67 +12,7 @@
 >
 >   - 인라인 스크립팅
 >
-      ```
-          <button onclick="window.alert('clicked button element.'); lang="en-US" type="button">
-              click me
-          </button>
-      ```
->> \- __단점:__ 위 코드방식으로 쓰면 코드가 길어지기 때문에 보기 불편해짐.
->>
->> \- __결론:__ 아래처럼 스크립팅을 분리하여 사용.
->
->   - 스크립팅 분리 1.
->
-      ```html
-         <button onclick="clickButton()" lang="en-US" type="button">
-              click me
-          </button>
-      ```
->
-      ```javascript
-          <script>
-              function clickButton() {
-                  window.alert('clicked button element.');
-                  if(this.firstChild.nodeValue === 'click me') {
-                      this.firstChild.nodeValue = 'this is button. clicked!';
-                  } else {
-                      this.firstChild.nodeValue = 'click me';
-                  }
-              }
-          </script>
-      ```
-      >> \- __문제점:__ clickButton()에 매개변수로 this를 넣어주지 않으면 script함수에서 this는 window를 가리킴
-      >>
-      >> \- __결론:__ 아래방식으로 매개변수로 this를 넣어주자.
->
->   - 스크립팅 분리 2.
->
-      ```html
-          <button onclick="clickButton(this)" lang="en-US" type="button">
-              click me
-          </button>
-      ```
-  	>> \- 매개변수로 onclick을 가리키는 this를 넣어 줌
->
-        ```javascript
-            <script>
-                function clickButton(button) {
-                    window.alert('clicked button element.');
-                    if(button.firstChild.nodeValue === 'click me') {
-                        button.firstChild.nodeValue = 'this is button. clicked!';
-                    } else {
-                        button.firstChild.nodeValue = 'click me';
-                    }
-                }
-            </script>
-        ```
-      >> \- button이라는 매개변수로 onclick을 가리키는 this 값을 받아 사용
 
- - 스크립팅 분리 이벤트 추가
->  - **el.onclick = fnNmae; or el.onclick = function(e) {...};**
->  - 전통 방식 (현재 사용 방식)
->  - 예시 )
-      
 - 스크립팅 분리 이벤트 제거
 >  - **el.onclick = null;**
 >  - 예시 )
