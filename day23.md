@@ -282,42 +282,42 @@
 >    	- document.body.clientWidth()
 >    - 예시 )
 >
-        ```html
-            <button type="button" class="look-at-button">
-            Look
-            </button>
-        ```
+		```html
+		    <button type="button" class="look-at-button">
+		    Look
+		    </button>
+		```
 >
-        ```javascript
-            <script>
-            (function() {
-                'use strict';
+		```javascript
+		    <script>
+		    (function() {
+			'use strict';
 >
-                /** @function init(): 애플리케이션 초기화 */
-                function init() {
-                function clickButton(button) {
-                window.alert('clicked button element.');
-                if(button.firstChild.nodeValue === 'click me') {
-                    button.firstChild.nodeValue = 'this is button. clicked!';
-                } else {
-                    button.firstChild.nodeValue = 'click me';
-                }
-                }
+			/** @function init(): 애플리케이션 초기화 */
+			function init() {
+			function clickButton(button) {
+			window.alert('clicked button element.');
+			if(button.firstChild.nodeValue === 'click me') {
+			    button.firstChild.nodeValue = 'this is button. clicked!';
+			} else {
+			    button.firstChild.nodeValue = 'click me';
+			}
+			}
 >
-                // window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
-                window.onresize = checkWindowResize;
-            }
+			// window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
+			window.onresize = checkWindowResize;
+		    }
 >
-            /** @functioncheckWindowResize */
-            function checkWindowResize() {
-                console.log('창(window)의 너비:', this.innerWidth);
-            }
+		    /** @functioncheckWindowResize */
+		    function checkWindowResize() {
+			console.log('창(window)의 너비:', this.innerWidth);
+		    }
 >
-            // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
-                window.onload = init;
-            })(this);
-            </script>
-        ```
+		    // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
+			window.onload = init;
+		    })(this);
+		    </script>
+		```
 
 - 스크롤(Scroll)
 > - **window.onscroll**
@@ -356,23 +356,23 @@
 		    }
 		</style>
 	    ```
-	>
+>
 	    ```javascript
 		<script>
 		    (function(){
 		      'use strict';
-	>
+>
 		      /** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
 		      function getRandomNumber(number) {
 		    return Math.floor(Math.random() * number);
 		      }
-	>
+>
 		     // circle 객체 위치 임의 설정 함수
 		     function randomCirclePosition() {
 		     // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
 		     var circles = document.querySelectorAll('[class*="circle-"]');
 		     // console.log('circles:', circles);
-	>
+>
 		    for( var i=0, l=circles.length; i<l; i++ ) {
 			var circle = circles[i];
 			// 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
@@ -385,7 +385,7 @@
 			 circle.style.opacity = 1;
 			}
 		    }
-	>
+>
 		      // 패럴럭스 이벤트 제어 함수
 		      function circleParallaxScroll() {
 			  var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
@@ -399,7 +399,7 @@
 			   circle.style.top = top + (scroll_y/300 * x) + 'px';
 			  }
 		    }
-	>
+>
 		     // 애플리케이션 초기화
 		     function init() {
 			  // circle 객체의 위치를 임의로 설정함수실행
@@ -407,13 +407,13 @@
 			  // 스크롤 이벤트가 발생하면 각 객체의 위치를 조정
 			  window.onscroll = circleParallaxScroll;
 		     }
-	>
+>
 		     // window {} 객체의 load 이벤트가 발동(감지)되면, init() 함수 실행
 		     window.onload = init;
 		     })(this);
 		</script>
 	    ```
-	>
+>
 	    ```html
 		<body>
 		  <div class="circle-50"></div>
