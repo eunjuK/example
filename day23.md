@@ -72,7 +72,6 @@
 >  - **el.onclick = fnNmae; or el.onclick = function(e) {...};**
 >  - 전통 방식 (현재 사용 방식)
 >  - 예시 )
->
       
 - 스크립팅 분리 이벤트 제거
 >  - **el.onclick = null;**
