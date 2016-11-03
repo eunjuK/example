@@ -165,29 +165,6 @@
     >> \- window를 명시적으로 쓰지 않을 경우, 성능 이슈, 디버깅 이슈가 있으므로 명시적으로 써주도록하자.
 >
 >   **방법 3.**
->
-      ```html
-          <button type="button" class="look-at-button">
-              Look
-          </button>
-      ```
->
-      ```javascript
-          <script>
-              function clickButton(button) {
-                  if(this.nodeName.toLowerCase() === 'button' && (typeof button === 'object') {
-                      button = this;
-                  }
->
-                  window.alert('clicked button element.');
-                  if(button.firstChild.nodeValue === 'click me') {
-                     button.firstChild.nodeValue = 'this is button. clicked!';
-                  } else {
-                      button.firstChild.nodeValue = 'click me';
-                  }
-              }
-          </script>
-      ```
 
 - 스크립팅 분리 이벤트 제거
 >  - **el.onclick = null;**
