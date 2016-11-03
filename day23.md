@@ -280,12 +280,6 @@
 >    	- document.body.clientWidth()
 >    - 예시 )
 >
->   ```
-    	<button type="button" class="look-at-button">
-            Look
-        </button>
-    ```
-
 
 - 스크롤(Scroll)
 > - **window.onscroll**
