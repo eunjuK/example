@@ -193,10 +193,10 @@
 
 
 - 스크립팅 분리 이벤트 제거   
->  - **el.onclick = null;**
->  - 예시 )
->
- ```html
+  - **el.onclick = null;**
+  - 예시 )
+
+> ```html
         <button type="button" class="look-at-button">
             Look
         </button>
