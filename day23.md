@@ -72,7 +72,7 @@
 >  - 전통 방식 (현재 사용 방식)
 >  - 예시 )
 >
-  >   방법 0. ES3
+  >   **방법 0. ES3**
   >
     ```
       <button type="button" class="look-at-button">
@@ -100,7 +100,7 @@
         })(this);
       </script>
     ```
-  >   방법 1. ES5
+  >   **방법 1. ES5**
   >
     ```
       <button type="button" class="look-at-button">
@@ -128,7 +128,7 @@
         }
       })(this);
     ```
-  >   방법 2.
+  >   **방법 2.**
   >
     ```
     <button type="button" class="look-at-button">
@@ -161,7 +161,7 @@
   >> \- 함수 지역 내에서 참조가 되지 않는 변수 or 함수는 암묵적으로 스코프 체이닝을 통해 상위 영역을 거슬러~ 거슬러~ 결국은! 전역까지 가서 전역 함수를 실행하게 됨
   >> \- window를 명시적으로 쓰지 않을 경우, 성능 이슈, 디버깅 이슈가 있으므로 명시적으로 써주도록하자.
   >
-  >   방법 3.
+  >   **방법 3.**
   >
     ```
     <button type="button" class="look-at-button">
