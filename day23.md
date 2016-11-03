@@ -198,25 +198,25 @@
             Look
         </button>
     ```
-  >
+>
     ```javascript
         <script>
             (function(global) {
                 'use strict';
-    >
+>
                 var look_at_button = document.querySelector('.look-at-button');
-    >
+>
                 // 버튼을 몇 회 이상 클릭한 후에는 버튼을 사용자가 클릭할 수 없게 만들고자 한다.
                 // 버튼을 클릭한 횟수를 기억할 변수
                 var click_count = 0;
-    >
+>
                 // [이벤트 연결] 이벤트 속성에 함수 값 연결
                 look_at_button.onclick = function() {
                     console.log('clicked:', this.onclick);
                     if( ++click_count === 2 ) {
                         // 클릭한 횟수가 2회가 되면 버튼을 사용자가 클릭할 수 없게 만든다.
                         // this.setAttribute('disabled', 'disabled');  // this = look_at_button
-        >
+>
                         // [이벤트 제거] 이벤트 속성에 null 대입함으로 연결괸 함수를 끊음
                         this.onclick = null;  // 참조한 함수를 끊고 null 대입
                         console.log('finished:', this.onclick);
@@ -225,7 +225,7 @@
             })(this);
         </script>
     ```
-
+>
 
 ##### 1.1.2. 인터페이스(Interface) 이벤트
 - 로드(Load)
