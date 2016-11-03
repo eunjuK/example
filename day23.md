@@ -280,42 +280,42 @@
 >    	- document.body.clientWidth()
 >    - 예시 )
 >
-    ```html
-        <button type="button" class="look-at-button">
-            Look
-        </button>
-    ```
+	    ```html
+		<button type="button" class="look-at-button">
+		    Look
+		</button>
+	    ```
 >
-    ```javascript
-        <script>
-            (function() {
-                'use strict';
+	    ```javascript
+		<script>
+		    (function() {
+			'use strict';
 >
-                /** @function init(): 애플리케이션 초기화 */
-                function init() {
-                    function clickButton(button) {
-                    window.alert('clicked button element.');
-                    if(button.firstChild.nodeValue === 'click me') {
-                        button.firstChild.nodeValue = 'this is button. clicked!';
-                    } else {
-                        button.firstChild.nodeValue = 'click me';
-                    }
-                }
+			/** @function init(): 애플리케이션 초기화 */
+			function init() {
+			    function clickButton(button) {
+			    window.alert('clicked button element.');
+			    if(button.firstChild.nodeValue === 'click me') {
+				button.firstChild.nodeValue = 'this is button. clicked!';
+			    } else {
+				button.firstChild.nodeValue = 'click me';
+			    }
+			}
 >
-                // window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
-                window.onresize = checkWindowResize;
-            }
+			// window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
+			window.onresize = checkWindowResize;
+		    }
 >
-            /** @functioncheckWindowResize */
-            function checkWindowResize() {
-                console.log('창(window)의 너비:', this.innerWidth);
-            }
+		    /** @functioncheckWindowResize */
+		    function checkWindowResize() {
+			console.log('창(window)의 너비:', this.innerWidth);
+		    }
 >
-            // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
-                window.onload = init;
-            })(this);
-        </script>
-    ```
+		    // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
+			window.onload = init;
+		    })(this);
+		</script>
+	    ```
 
 - 스크롤(Scroll)
 > - **window.onscroll**
@@ -328,32 +328,32 @@
 > - **parallax scroll native**
 >
 	```css
-        <style media="screen">
-            html {
-              overflow-x: hidden;
-             height: 300vh;
-            }
-            [class*="circle"] {
-              opacity: 0;
-              background: hsla(0, 0%, 0%, 0.6);
-              border-radius: 50%;
-            }
-            .circle-50 {
-              width: 50px;
-              height: 50px;s
-              background: hsla(0, 100%, 50%, 0.6);
-            }
-            .circle-100 {
-              width: 100px;
-              height: 100px;
-            }
-            .circle-1000 {
-              width: 1000px;
-              height: 1000px;
-              background: hsla(0, 0%, 95%, 0.6)
-            }
-        </style>
-    ```
+	<style media="screen">
+	    html {
+	      overflow-x: hidden;
+	     height: 300vh;
+	    }
+	    [class*="circle"] {
+	      opacity: 0;
+	      background: hsla(0, 0%, 0%, 0.6);
+	      border-radius: 50%;
+	    }
+	    .circle-50 {
+	      width: 50px;
+	      height: 50px;s
+	      background: hsla(0, 100%, 50%, 0.6);
+	    }
+	    .circle-100 {
+	      width: 100px;
+	      height: 100px;
+	    }
+	    .circle-1000 {
+	      width: 1000px;
+	      height: 1000px;
+	      background: hsla(0, 0%, 95%, 0.6)
+	    }
+	</style>
+    	```
 >
 	```javascript
         <script>
