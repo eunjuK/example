@@ -6,7 +6,7 @@
 ### 1.1. 오래된 이벤트 모델(The Old Way, Event Model)
 ##### 1.1.1. 스크립팅
  - 인라인 스크립팅 이벤트 추가
->  - < element onclick = "fnName()">
+>  - **< element onclick = "fnName()">**
 >  - 예전방식이나 현재도 쓰고 있긴 함
 >  - 예시 )
   >
@@ -52,7 +52,7 @@
     ```
     >> \- 매개변수로 onclick을 가리키는 this를 넣어 줌
   >
-    ```
+    ```javascript
     <script>
         function clickButton(button) {
           window.alert('clicked button element.');
@@ -68,7 +68,7 @@
 
 
  - 스크립팅 분리 이벤트 추가
->  - el.onclick = fnNmae; or el.onclick = function(e) {...};
+>  - **el.onclick = fnNmae; or el.onclick = function(e) {...};**
 >  - 전통 방식 (현재 사용 방식)
 >  - 예시 )
 >
@@ -80,7 +80,7 @@
       </button>
     ```
   >
-    ```
+    ```javascript
       <script>
         function clickButton(button) {
           window.alert('clicked button element.');
@@ -109,7 +109,7 @@
     ```
   >> \- window = this /  look_at_button = argument
   >
-    ```
+    ```javascript
     <script>
       function clickButton(button) {
         window.alert('clicked button element.');
@@ -136,7 +136,7 @@
     </button>
     ```
   >
-    ```
+    ```javascript
       <script>
         function clickButton(button) {
           window.alert('clicked button element.');
@@ -169,7 +169,7 @@
     </button>
     ```
   >
-    ```
+    ```javascript
       <script>
         function clickButton(button) {
           if(this.nodeName.toLowerCase() === 'button' && (typeof button === 'object') {
@@ -187,7 +187,7 @@
     ```
 
  - 스크립팅 분리 이벤트 제거
->  - el.onclick = null;
+>  - **el.onclick = null;**
 >  - 예시 )
 >
   >
@@ -197,7 +197,7 @@
       </button>
     ```
   >
-    ```
+    ```javascript
       <script>
         (function(global) {
           'use strict';
@@ -227,19 +227,37 @@
 
 ##### 1.1.2. 인터페이스(Interface) 이벤트
  - 로드(Load)
->	- window.onload
+>	- **window.onload**
 >    - DOM이 완성된 이후, 이벤트 감지
 >    - 늦게 실행 됨(이미지를 전부 불러와야 실행됨 )
 >    - 예시 )
 >    
->   \*\* init() : 애플리케이션 초기화 (initialization()) 
+>   \*\* **init()** : 애플리케이션 초기화 (initialization()) 
+>   \- 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행.
 >
-	>
+    ```
         <button type="button" class="look-at-button">
             Look
         </button>
+    ```
+>
+	```javascript
+    	<script>
+            (function() {
+              'use strict';
+>
+              /** @function init(): 애플리케이션 초기화 */
+              function init() { ... }
+>
+              // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
+              window.onload = init;
+            })(this);
+    	</script>
+	```
+>
+        
 		
-	>
+
  - 언로드(Un Load)
  - 에러(Error)
  - 리사이즈(Resize)
