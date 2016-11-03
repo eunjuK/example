@@ -261,11 +261,13 @@
  - 언로드(Un Load)
 > - **windo.onunload**
 > - 창이 닫히는 순간, 이벤트 감지
+
  - 에러(Error)
 > - **window.onerror**
 > - 오류가 발생되었을 때, 이벤트 감지
 > - Image Error
 > 	- 이미지 호출 시 에러 발생시, 이를 체크
+
  - 리사이즈(Resize)
  >	- **window.onresize**
 > 	- 창의 크기가 변경될 때, 이벤트 감지
@@ -285,34 +287,34 @@
     ```
 >
 	```javascript
-      <script>
-        (function() {
-          'use strict';
->
-          /** @function init(): 애플리케이션 초기화 */
-          function init() {
-            function clickButton(button) {
-              window.alert('clicked button element.');
-              if(button.firstChild.nodeValue === 'click me') {
-                button.firstChild.nodeValue = 'this is button. clicked!';
-              } else {
-                button.firstChild.nodeValue = 'click me';
+          <script>
+            (function() {
+              'use strict';
+    >
+              /** @function init(): 애플리케이션 초기화 */
+              function init() {
+                function clickButton(button) {
+                  window.alert('clicked button element.');
+                  if(button.firstChild.nodeValue === 'click me') {
+                    button.firstChild.nodeValue = 'this is button. clicked!';
+                  } else {
+                    button.firstChild.nodeValue = 'click me';
+                  }
+                }
+    >
+                // window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
+                window.onresize = checkWindowResize;
               }
-            }
->
-            // window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
-            window.onresize = checkWindowResize;
-          }
->
-          /** @functioncheckWindowResize */
-          function checkWindowResize() {
-            console.log('창(window)의 너비:', this.innerWidth);
-          }
->
-          // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.   
-          window.onload = init;
-        })(this);
-      </script>
+    >
+              /** @functioncheckWindowResize */
+              function checkWindowResize() {
+                console.log('창(window)의 너비:', this.innerWidth);
+              }
+    >
+              // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.   
+              window.onload = init;
+            })(this);
+          </script>
     ```
 >
     
@@ -326,96 +328,96 @@
 >  
 > - **parallax scroll native**
 	```css
-    <style media="screen">
-        html {
-          overflow-x: hidden;
-         height: 300vh;
-        }
-        [class*="circle"] {
-          opacity: 0;
-          background: hsla(0, 0%, 0%, 0.6);
-          border-radius: 50%;
-        }
-        .circle-50 {
-          width: 50px;
-          height: 50px;
-          background: hsla(0, 100%, 50%, 0.6);
-        }
-        .circle-100 {
-          width: 100px;
-          height: 100px;
-        }
-        .circle-1000 {
-          width: 1000px;
-          height: 1000px;
-          background: hsla(0, 0%, 95%, 0.6)
-        }
-    </style>
+        <style media="screen">
+            html {
+              overflow-x: hidden;
+             height: 300vh;
+            }
+            [class*="circle"] {
+              opacity: 0;
+              background: hsla(0, 0%, 0%, 0.6);
+              border-radius: 50%;
+            }
+            .circle-50 {
+              width: 50px;
+              height: 50px;s
+              background: hsla(0, 100%, 50%, 0.6);
+            }
+            .circle-100 {
+              width: 100px;
+              height: 100px;
+            }
+            .circle-1000 {
+              width: 1000px;
+              height: 1000px;
+              background: hsla(0, 0%, 95%, 0.6)
+            }
+        </style>
     ```
 >
 	```javascript
-    <script>
-        (function(){
-          'use strict';
->
-          /** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
-          function getRandomNumber(number) {
-            return Math.floor(Math.random() * number);
-          }
->
-         // circle 객체 위치 임의 설정 함수
-         function randomCirclePosition() {
-             // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
-             var circles = document.querySelectorAll('[class*="circle-"]');
-             // console.log('circles:', circles);
->
-            for( var i=0, l=circles.length; i<l; i++ ) {
-                var circle = circles[i];
-                // 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
-                // 랜덤하게 화면의 곳곳에 배치(x, y)
-                for ( var i=0, l=circles.length; i<l; i++ ) {
-                     var circle = circles[i];
-                     circle.style.position = 'absolute';
-                     circle.style.top = getRandomNumber( window.innerHeight ) + 'px';
-                     circle.style.left = getRandomNumber( window.innerWidth ) + 'px';
-                     circle.style.opacity = 1;
+        <script>
+            (function(){
+              'use strict';
+    >
+              /** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
+              function getRandomNumber(number) {
+                return Math.floor(Math.random() * number);
+              }
+    >
+             // circle 객체 위치 임의 설정 함수
+             function randomCirclePosition() {
+                 // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
+                 var circles = document.querySelectorAll('[class*="circle-"]');
+                 // console.log('circles:', circles);
+    >
+                for( var i=0, l=circles.length; i<l; i++ ) {
+                    var circle = circles[i];
+                    // 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
+                    // 랜덤하게 화면의 곳곳에 배치(x, y)
+                    for ( var i=0, l=circles.length; i<l; i++ ) {
+                         var circle = circles[i];
+                         circle.style.position = 'absolute';
+                         circle.style.top = getRandomNumber( window.innerHeight ) + 'px';
+                         circle.style.left = getRandomNumber( window.innerWidth ) + 'px';
+                         circle.style.opacity = 1;
+                    }
                 }
-            }
->
-              // 패럴럭스 이벤트 제어 함수
-              function circleParallaxScroll() {
-                  var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
-                  // circle 원을 각각 제어
-                  var circles = document.querySelectorAll('[class*="circle-"]');
-                  for ( var i=0, l=circles.length; i<l; i++ ) {
-                       var circle = circles[i];
-                       var top = parseInt(circle.style.top, 10);
-                       var x = 0.5 * i;
-                       if ( i === 1 ) { x = -1 * x * (i+1); }
-                       circle.style.top = top + (scroll_y/300 * x) + 'px';
-                  }
-            }
->
-             // 애플리케이션 초기화
-             function init() {
-                  // circle 객체의 위치를 임의로 설정함수실행
-                  randomCirclePosition();
-                  // 스크롤 이벤트가 발생하면 각 객체의 위치를 조정
-                  window.onscroll = circleParallaxScroll;
-             }
->
-             // window {} 객체의 load 이벤트가 발동(감지)되면, init() 함수 실행
-             window.onload = init;
-         })(this);
-    </script>
+    >
+                  // 패럴럭스 이벤트 제어 함수
+                  function circleParallaxScroll() {
+                      var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
+                      // circle 원을 각각 제어
+                      var circles = document.querySelectorAll('[class*="circle-"]');
+                      for ( var i=0, l=circles.length; i<l; i++ ) {
+                           var circle = circles[i];
+                           var top = parseInt(circle.style.top, 10);
+                           var x = 0.5 * i;
+                           if ( i === 1 ) { x = -1 * x * (i+1); }
+                           circle.style.top = top + (scroll_y/300 * x) + 'px';
+                      }
+                }
+    >
+                 // 애플리케이션 초기화
+                 function init() {
+                      // circle 객체의 위치를 임의로 설정함수실행
+                      randomCirclePosition();
+                      // 스크롤 이벤트가 발생하면 각 객체의 위치를 조정
+                      window.onscroll = circleParallaxScroll;
+                 }
+    >
+                 // window {} 객체의 load 이벤트가 발동(감지)되면, init() 함수 실행
+                 window.onload = init;
+             })(this);
+        </script>
 	```
 >
 	```html
-    <body>
-      <div class="circle-50"></div>
-      <div class="circle-100"></div>
-      <div class="circle-1000"></div>
-    </body>
+        <body>
+          <div class="circle-50"></div>
+          <div class="circle-100"></div>
+          <div class="circle-1000"></div>
+        </body>
 	```
 
  - 포커스(Focus)
@@ -444,7 +446,8 @@
         console.log('e.ctrlKey:', e.ctrlKey );
 }
     ```
- - 키 프레스(Key press)
+
+- 키 프레스(Key press)
 > - **element.onkeypress**
 > - 사용자가 키를 누른 순간 이벤트 감지
 > - 여러번 누르고 있는 상태
