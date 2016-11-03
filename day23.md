@@ -292,27 +292,27 @@
 		```javascript
 		    <script>
 			    (function() {
-				'use strict';
+					'use strict';
 
-				/** @function init(): 애플리케이션 초기화 */
-				function init() {
-					function clickButton(button) {
-					window.alert('clicked button element.');
-					if(button.firstChild.nodeValue === 'click me') {
-					    button.firstChild.nodeValue = 'this is button. clicked!';
-					} else {
-					    button.firstChild.nodeValue = 'click me';
+					/** @function init(): 애플리케이션 초기화 */
+					function init() {
+						function clickButton(button) {
+						window.alert('clicked button element.');
+						if(button.firstChild.nodeValue === 'click me') {
+						    button.firstChild.nodeValue = 'this is button. clicked!';
+						} else {
+						    button.firstChild.nodeValue = 'click me';
+						}
 					}
-				}
 
-				// window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
-				window.onresize = checkWindowResize;
-			    }
+					// window {} 객체의 resize 이벤스 속성에 실행할 함수를 연결
+					window.onresize = checkWindowResize;
+				    }
 
-			    /** @functioncheckWindowResize */
-			    function checkWindowResize() {
-					console.log('창(window)의 너비:', this.innerWidth);
-			    }
+				    /** @functioncheckWindowResize */
+				    function checkWindowResize() {
+						console.log('창(window)의 너비:', this.innerWidth);
+				    }
 
 			   	 // 애플리케이션 초기화는 문서의 모든 것이 준비된 다음에 실행하라.
 					window.onload = init;
@@ -377,11 +377,11 @@
 				    // 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
 				    // 랜덤하게 화면의 곳곳에 배치(x, y)
 				    for ( var i=0, l=circles.length; i<l; i++ ) {
-					var circle = circles[i];
-					circle.style.position = 'absolute';
-					circle.style.top = getRandomNumber( window.innerHeight ) + 'px';
-					circle.style.left = getRandomNumber( window.innerWidth ) + 'px';
-					circle.style.opacity = 1;
+						var circle = circles[i];
+						circle.style.position = 'absolute';
+						circle.style.top = getRandomNumber( window.innerHeight ) + 'px';
+						circle.style.left = getRandomNumber( window.innerWidth ) + 'px';
+						circle.style.opacity = 1;
 				    }
 				 }
 
@@ -391,11 +391,11 @@
 				    // circle 원을 각각 제어
 				    var circles = document.querySelectorAll('[class*="circle-"]');
 				    for ( var i=0, l=circles.length; i<l; i++ ) {
-					var circle = circles[i];
-					var top = parseInt(circle.style.top, 10);
-					var x = 0.5 * i;
-					if ( i === 1 ) { x = -1 * x * (i+1); }
-					circle.style.top = top + (scroll_y/300 * x) + 'px';
+						var circle = circles[i];
+						var top = parseInt(circle.style.top, 10);
+						var x = 0.5 * i;
+						if ( i === 1 ) { x = -1 * x * (i+1); }
+						circle.style.top = top + (scroll_y/300 * x) + 'px';
 				    }
 				}
 
