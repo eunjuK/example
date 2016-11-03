@@ -563,44 +563,44 @@
 >     - bubble: true
 >     - 예시 )
 >
-	```javascript
-    	for ( var i=0, l=boxs.length; i<l; i++ ) {
-           boxs[i].addEventListener('click', function(event){
-              console.log('this:', this);
-              console.log('event.target:', event.target);
+		```javascript
+		for ( var i=0, l=boxs.length; i<l; i++ ) {
+		   boxs[i].addEventListener('click', function(event){
+		      console.log('this:', this);
+		      console.log('event.target:', event.target);
+	>
+		      if ( event.target.className.indexOf('parent') > -1 ) { ... }
+		      console.log('event.currentTarget:', event.currentTarget);
+		      console.log('%c------------------------------', 'color: #3d9a21');
+		   }, false);
+		}
+		```
 >
-              if ( event.target.className.indexOf('parent') > -1 ) { ... }
-              console.log('event.currentTarget:', event.currentTarget);
-              console.log('%c------------------------------', 'color: #3d9a21');
-           }, false);
-        }
-    ```
->
->   - 이벤트 모델 - 제거
+>    - 이벤트 모델 - 제거
 >    - **.removeEventListener('type', handler, false);**
-> - MS
+>- MS
 >  - 이벤트 모델 - 추가
 >    - **.attachEvent('on'+'type', handler);**
 >    - 예시 )
 >
-	```javascript
-    	var target = boxs.item(boxs.length - 1);
-        var ecent_type = 'mouseover';
->
-        var fnA = function(e) {
-           e = e || window.event;
-           e.target = e.target || e.srcElement;
-           console.log('A');
-           console.log('this:', this);
-        };
-        var fnB = function() {
-           console.log('B');
-           console.log('this:', this);
-        };
->
-        target.attachEvent('on'+event_type, fnA);
-        target.attachEvent('on'+event_type, fnB);
-    ```
+		```javascript
+		var target = boxs.item(boxs.length - 1);
+		var ecent_type = 'mouseover';
+	>
+		var fnA = function(e) {
+		   e = e || window.event;
+		   e.target = e.target || e.srcElement;
+		   console.log('A');
+		   console.log('this:', this);
+		};
+		var fnB = function() {
+		   console.log('B');
+		   console.log('this:', this);
+		};
+	>
+		target.attachEvent('on'+event_type, fnA);
+		target.attachEvent('on'+event_type, fnB);
+	    ```
 >
 >  - 이벤트 모델 - 제거
 >    - **.detachEvent('on' +'type', handler);**
