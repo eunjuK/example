@@ -329,98 +329,98 @@
 >
 > - **parallax scroll native**
 >
-    ```css
-        <style media="screen">
-            html {
-              overflow-x: hidden;
-             height: 300vh;
-            }
-            [class*="circle"] {
-              opacity: 0;
-              background: hsla(0, 0%, 0%, 0.6);
-              border-radius: 50%;
-            }
-            .circle-50 {
-              width: 50px;
-              height: 50px;s
-              background: hsla(0, 100%, 50%, 0.6);
-            }
-            .circle-100 {
-              width: 100px;
-              height: 100px;
-            }
-            .circle-1000 {
-              width: 1000px;
-              height: 1000px;
-              background: hsla(0, 0%, 95%, 0.6)
-            }
-        </style>
-    ```
->
-    ```javascript
-        <script>
-            (function(){
-              'use strict';
->
-              /** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
-              function getRandomNumber(number) {
-            return Math.floor(Math.random() * number);
-              }
->
-             // circle 객체 위치 임의 설정 함수
-             function randomCirclePosition() {
-             // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
-             var circles = document.querySelectorAll('[class*="circle-"]');
-             // console.log('circles:', circles);
->
-            for( var i=0, l=circles.length; i<l; i++ ) {
-                var circle = circles[i];
-                // 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
-                // 랜덤하게 화면의 곳곳에 배치(x, y)
-                for ( var i=0, l=circles.length; i<l; i++ ) {
-                 var circle = circles[i];
-                 circle.style.position = 'absolute';
-                 circle.style.top = getRandomNumber( window.innerHeight ) + 'px';
-                 circle.style.left = getRandomNumber( window.innerWidth ) + 'px';
-                 circle.style.opacity = 1;
-                }
-            }
->
-              // 패럴럭스 이벤트 제어 함수
-              function circleParallaxScroll() {
-                  var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
-                  // circle 원을 각각 제어
-                  var circles = document.querySelectorAll('[class*="circle-"]');
-                  for ( var i=0, l=circles.length; i<l; i++ ) {
-                   var circle = circles[i];
-                   var top = parseInt(circle.style.top, 10);
-                   var x = 0.5 * i;
-                   if ( i === 1 ) { x = -1 * x * (i+1); }
-                   circle.style.top = top + (scroll_y/300 * x) + 'px';
-                  }
-            }
->
-             // 애플리케이션 초기화
-             function init() {
-                  // circle 객체의 위치를 임의로 설정함수실행
-                  randomCirclePosition();
-                  // 스크롤 이벤트가 발생하면 각 객체의 위치를 조정
-                  window.onscroll = circleParallaxScroll;
-             }
->
-             // window {} 객체의 load 이벤트가 발동(감지)되면, init() 함수 실행
-             window.onload = init;
-             })(this);
-        </script>
-    ```
->
-    ```html
-        <body>
-          <div class="circle-50"></div>
-          <div class="circle-100"></div>
-          <div class="circle-1000"></div>
-        </body>
-    ```
+	    ```css
+		<style media="screen">
+		    html {
+		      overflow-x: hidden;
+		     height: 300vh;
+		    }
+		    [class*="circle"] {
+		      opacity: 0;
+		      background: hsla(0, 0%, 0%, 0.6);
+		      border-radius: 50%;
+		    }
+		    .circle-50 {
+		      width: 50px;
+		      height: 50px;s
+		      background: hsla(0, 100%, 50%, 0.6);
+		    }
+		    .circle-100 {
+		      width: 100px;
+		      height: 100px;
+		    }
+		    .circle-1000 {
+		      width: 1000px;
+		      height: 1000px;
+		      background: hsla(0, 0%, 95%, 0.6)
+		    }
+		</style>
+	    ```
+	>
+	    ```javascript
+		<script>
+		    (function(){
+		      'use strict';
+	>
+		      /** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
+		      function getRandomNumber(number) {
+		    return Math.floor(Math.random() * number);
+		      }
+	>
+		     // circle 객체 위치 임의 설정 함수
+		     function randomCirclePosition() {
+		     // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
+		     var circles = document.querySelectorAll('[class*="circle-"]');
+		     // console.log('circles:', circles);
+	>
+		    for( var i=0, l=circles.length; i<l; i++ ) {
+			var circle = circles[i];
+			// 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
+			// 랜덤하게 화면의 곳곳에 배치(x, y)
+			for ( var i=0, l=circles.length; i<l; i++ ) {
+			 var circle = circles[i];
+			 circle.style.position = 'absolute';
+			 circle.style.top = getRandomNumber( window.innerHeight ) + 'px';
+			 circle.style.left = getRandomNumber( window.innerWidth ) + 'px';
+			 circle.style.opacity = 1;
+			}
+		    }
+	>
+		      // 패럴럭스 이벤트 제어 함수
+		      function circleParallaxScroll() {
+			  var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
+			  // circle 원을 각각 제어
+			  var circles = document.querySelectorAll('[class*="circle-"]');
+			  for ( var i=0, l=circles.length; i<l; i++ ) {
+			   var circle = circles[i];
+			   var top = parseInt(circle.style.top, 10);
+			   var x = 0.5 * i;
+			   if ( i === 1 ) { x = -1 * x * (i+1); }
+			   circle.style.top = top + (scroll_y/300 * x) + 'px';
+			  }
+		    }
+	>
+		     // 애플리케이션 초기화
+		     function init() {
+			  // circle 객체의 위치를 임의로 설정함수실행
+			  randomCirclePosition();
+			  // 스크롤 이벤트가 발생하면 각 객체의 위치를 조정
+			  window.onscroll = circleParallaxScroll;
+		     }
+	>
+		     // window {} 객체의 load 이벤트가 발동(감지)되면, init() 함수 실행
+		     window.onload = init;
+		     })(this);
+		</script>
+	    ```
+	>
+	    ```html
+		<body>
+		  <div class="circle-50"></div>
+		  <div class="circle-100"></div>
+		  <div class="circle-1000"></div>
+		</body>
+	    ```
 
 - 포커스(Focus)
 > - **window.onfocus**
@@ -441,13 +441,13 @@
 >  - 게임에서 한발자국 오른쪽으로 감
 > - 예시 )
 >
-    ```javascript
-        document.onkeydown = function(e) {
-            console.log('e.keyCode:', e.keyCode);
-            console.log('e.shiftKey:', e.shiftKey );
-            console.log('e.ctrlKey:', e.ctrlKey );
-        }
-    ```
+	    ```javascript
+		document.onkeydown = function(e) {
+		    console.log('e.keyCode:', e.keyCode);
+		    console.log('e.shiftKey:', e.shiftKey );
+		    console.log('e.ctrlKey:', e.ctrlKey );
+		}
+	    ```
 
 - 키 프레스(Key press)
 > - **element.onkeypress**
@@ -469,31 +469,31 @@
 
  - 마우스 오버(Mouse Over)
 >  - **element.onmouseover**
-  - 요소에 마우스 커서가 올라간 순간, 이벤트 감지
-   - MouseEnter
-   - IE 전용 이벤트로 :hover를 완벽히 구현
+>  - 요소에 마우스 커서가 올라간 순간, 이벤트 감지
+>   - MouseEnter
+>   - IE 전용 이벤트로 :hover를 완벽히 구현
 
  - 마우스 아웃(Mouse Over)
 >  - **element.onmouseout**
-   - 요소에 마우스 커서가 나간 순간, 이벤트 감지
-   - MouseLeave
- 	- IE 전용 이벤트로 마우스 아웃에 대응
+>   - 요소에 마우스 커서가 나간 순간, 이벤트 감지
+>   - MouseLeave
+> 	- IE 전용 이벤트로 마우스 아웃에 대응
 
  - 더블 클릭(Double Click)
 >  - **element.ondblclick**
-  - 사용자가 요소를 연속하여 2번 누른 순간, 이벤트 감지
+>  - 사용자가 요소를 연속하여 2번 누른 순간, 이벤트 감지
 
  - 마우스 다운(Mouse Down)
 >  - **element.onmousedown**
-  - 요소를 마우스 커서로 누른 순간, 이벤트 감지
+>  - 요소를 마우스 커서로 누른 순간, 이벤트 감지
 
  - 마우스 무브(Mouse Move)
 >  - **element.onmousemove**
-  - 요소를 마우스 커서로 누르고 움직이는 순간, 이벤트 감지
+>  - 요소를 마우스 커서로 누르고 움직이는 순간, 이벤트 감지
 
  - 마우스 업(Mouse Up)
 >  - **element.onmouseup**
-  - 요소에 마우스 커서가 떠난 순간, 이벤트 감지
+>  - 요소에 마우스 커서가 떠난 순간, 이벤트 감지
 
 
 ##### 1.1.5. 폼 이벤트
