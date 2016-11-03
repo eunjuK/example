@@ -101,35 +101,6 @@
           </script>
       ```
 >
->   **방법 1. ES5**
->
-      ```html
-          <button type="button" class="look-at-button">
-              Look
-          </button>
-      ```
-    >> \- window = this /  look_at_button = argument
->
-      ```javascript
-          <script>
-              function clickButton(button) {
-                  window.alert('clicked button element.');
-                  if(button.firstChild.nodeValue === 'click me') {
-                      button.firstChild.nodeValue = 'this is button. clicked!';
-                  } else {
-                      button.firstChild.nodeValue = 'click me';
-                  }
-              }
->
-              (function(global) {
-                  'use strict';
->
-                  var look_at_button = document.querySelector('.look-at-button');
-                  look_at_button.onclick = clickButton.bind(window, look_at_button);
-              })(this);
-          </script>
-      ```
->
       
 - 스크립팅 분리 이벤트 제거
 >  - **el.onclick = null;**
