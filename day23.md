@@ -73,34 +73,6 @@
 >  - 전통 방식 (현재 사용 방식)
 >  - 예시 )
 >
->   **방법 0. ES3**
->
-      ```html
-          <button type="button" class="look-at-button">
-              Look
-          </button>
-      ```
->
-      ```javascript
-          <script>
-              function clickButton(button) {
-                  window.alert('clicked button element.');
-                  if(button.firstChild.nodeValue === 'click me') {
-                      button.firstChild.nodeValue = 'this is button. clicked!';
-                  } else {
-                      button.firstChild.nodeValue = 'click me';
-                  }
-              }
->
-              (function(global) {
-                  'use strict';
->
-                  var look_at_button = document.querySelector('.look-at-button');
-                  look_at_button.onclick = clickButton;
-              })(this);
-          </script>
-      ```
->
       
 - 스크립팅 분리 이벤트 제거
 >  - **el.onclick = null;**
