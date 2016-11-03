@@ -13,9 +13,9 @@
 >   - 인라인 스크립팅
 >
         ```html
-					<button onclick="window.alert('clicked button element.'); lang="en-US" type="button">
-						click me
-					</button>
+            <button onclick="window.alert('clicked button element.'); lang="en-US" type="button">
+                click me
+            </button>
         ```
 	>> \- __단점:__ 위 코드방식으로 쓰면 코드가 길어지기 때문에 보기 불편해짐.
 	>>
@@ -24,22 +24,22 @@
 >   - 스크립팅 분리 1.
 >
         ```html
-					<button onclick="clickButton()" lang="en-US" type="button">
-						click me
-					</button>
+            <button onclick="clickButton()" lang="en-US" type="button">
+                click me
+            </button>
         ```
 >
         ```javascript
-					<script>
-						function clickButton() {
-							window.alert('clicked button element.');
-							if(this.firstChild.nodeValue === 'click me') {
-								this.firstChild.nodeValue = 'this is button. clicked!';
-							} else {
-								this.firstChild.nodeValue = 'click me';
-							}
-						}
-					</script>
+            <script>
+                function clickButton() {
+                    window.alert('clicked button element.');
+                    if(this.firstChild.nodeValue === 'click me') {
+                        this.firstChild.nodeValue = 'this is button. clicked!';
+                    } else {
+                        this.firstChild.nodeValue = 'click me';
+                    }
+                }
+            </script>
         ```
     >> \- __문제점:__ clickButton()에 매개변수로 this를 넣어주지 않으면 script함수에서 this는 window를 가리킴
     >>
@@ -48,24 +48,24 @@
 >   - 스크립팅 분리 2.
 >
         ```html
-					<button onclick="clickButton(this)" lang="en-US" type="button">
-						click me
-					</button>
+            <button onclick="clickButton(this)" lang="en-US" type="button">
+                click me
+            </button>
         ```
 	>> \- 매개변수로 onclick을 가리키는 this를 넣어 줌
 >
-			```javascript
-				<script>
-					function clickButton(button) {
-						window.alert('clicked button element.');
-						if(button.firstChild.nodeValue === 'click me') {
-							button.firstChild.nodeValue = 'this is button. clicked!';
-						} else {
-							button.firstChild.nodeValue = 'click me';
-						}
-					}
-				</script>
-			```
+        ```javascript
+            <script>
+                function clickButton(button) {
+                    window.alert('clicked button element.');
+                    if(button.firstChild.nodeValue === 'click me') {
+                        button.firstChild.nodeValue = 'this is button. clicked!';
+                    } else {
+                        button.firstChild.nodeValue = 'click me';
+                    }
+                }
+            </script>
+        ```
     >> \- button이라는 매개변수로 onclick을 가리키는 this 값을 받아 사용
 
  - 스크립팅 분리 이벤트 추가
@@ -75,147 +75,146 @@
 >
 >   **방법 0. ES3**
 >
-		```html
-				<button type="button" class="look-at-button">
-						Look
-				</button>
-		```
+    ```html
+        <button type="button" class="look-at-button">
+            Look
+        </button>
+    ```
 >
-		```javascript
-				<script>
-						function clickButton(button) {
-								window.alert('clicked button element.');
-								if(button.firstChild.nodeValue === 'click me') {
-										button.firstChild.nodeValue = 'this is button. clicked!';
-								} else {
-										button.firstChild.nodeValue = 'click me';
-								}
-						}
+    ```javascript
+        <script>
+            function clickButton(button) {
+                window.alert('clicked button element.');
+                if(button.firstChild.nodeValue === 'click me') {
+                    button.firstChild.nodeValue = 'this is button. clicked!';
+                } else {
+                    button.firstChild.nodeValue = 'click me';
+                }
+            }
 >
-						(function(global) {
-								'use strict';
+            (function(global) {
+                'use strict';
 >
-								var look_at_button = document.querySelector('.look-at-button');
-								look_at_button.onclick = clickButton;
-						})(this);
-				</script>
-		```
+                var look_at_button = document.querySelector('.look-at-button');
+                look_at_button.onclick = clickButton;
+            })(this);
+        </script>
+    ```
 >
 >   **방법 1. ES5**
 >
-		```html
-				<button type="button" class="look-at-button">
-						Look
-				</button>
-		```
-		>> \- window = this /  look_at_button = argument
+    ```html
+        <button type="button" class="look-at-button">
+            Look
+        </button>
+    ```
+  >> \- window = this /  look_at_button = argument
+  >
+    ```javascript
+        <script>
+            function clickButton(button) {
+                window.alert('clicked button element.');
+                if(button.firstChild.nodeValue === 'click me') {
+                    button.firstChild.nodeValue = 'this is button. clicked!';
+                } else {
+                    button.firstChild.nodeValue = 'click me';
+                }
+            }
 >
-		```javascript
-				<script>
-						function clickButton(button) {
-								window.alert('clicked button element.');
-								if(button.firstChild.nodeValue === 'click me') {
-										button.firstChild.nodeValue = 'this is button. clicked!';
-								} else {
-										button.firstChild.nodeValue = 'click me';
-								}
-						}
+            (function(global) {
+                'use strict';
 >
-						(function(global) {
-								'use strict';
->
-								var look_at_button = document.querySelector('.look-at-button');
-								look_at_button.onclick = clickButton.bind(window, look_at_button);
-						})(this);
-				</script>
-		```
->
+                var look_at_button = document.querySelector('.look-at-button');
+                look_at_button.onclick = clickButton.bind(window, look_at_button);
+            })(this);
+        </script>
+    ```
 >   **방법 2.**
 >
-		```html
-				<button type="button" class="look-at-button">
-						Look
-				</button>
-		```
+    ```html
+        <button type="button" class="look-at-button">
+            Look
+        </button>
+    ```
 >
-		```javascript
-			<script>
-				function clickButton(button) {
-					window.alert('clicked button element.');
-					if(button.firstChild.nodeValue === 'click me') {
-							button.firstChild.nodeValue = 'this is button. clicked!';
-					} else {
-							button.firstChild.nodeValue = 'click me';
-					}
-				}
+    ```javascript
+        <script>
+            function clickButton(button) {
+                window.alert('clicked button element.');
+                    if(button.firstChild.nodeValue === 'click me') {
+                        button.firstChild.nodeValue = 'this is button. clicked!';
+                    } else {
+                        button.firstChild.nodeValue = 'click me';
+                    }
+                }
 >
-				(function(global) {
-					'use strict';
+            (function(global) {
+                'use strict';
 >
-					var look_at_button = document.querySelector('.look-at-button');
-					look_at_button.onclick = function() {
-						window.clickButton(this);
-					};
-				})(this);
-			</script>
-		```
+                var look_at_button = document.querySelector('.look-at-button');
+                look_at_button.onclick = function() {
+                    window.clickButton(this);
+                };
+            })(this);
+        </script>
+    ```
   >> \- this = look_at_button
   >> \- 함수 지역 내에서 참조가 되지 않는 변수 or 함수는 암묵적으로 스코프 체이닝을 통해 상위 영역을 거슬러~ 거슬러~ 결국은! 전역까지 가서 전역 함수를 실행하게 됨
   >> \- window를 명시적으로 쓰지 않을 경우, 성능 이슈, 디버깅 이슈가 있으므로 명시적으로 써주도록하자.
 >
 >   **방법 3.**
 >
-			```html
-					<button type="button" class="look-at-button">
-							Look
-					</button>
-			```
+    ```html
+        <button type="button" class="look-at-button">
+            Look
+        </button>
+    ```
 >
-			```javascript
-					<script>
-						function clickButton(button) {
-							if(this.nodeName.toLowerCase() === 'button' && (typeof button === 'object') {
-								button = this;
-							}
+    ```javascript
+        <script>
+            function clickButton(button) {
+                if(this.nodeName.toLowerCase() === 'button' && (typeof button === 'object') {
+                    button = this;
+                }
 >
-							window.alert('clicked button element.');
-							if(button.firstChild.nodeValue === 'click me') {
-							 button.firstChild.nodeValue = 'this is button. clicked!';
-							} else {
-								button.firstChild.nodeValue = 'click me';
-							}
-						}
-					</script>
-			```
+                window.alert('clicked button element.');
+                if(button.firstChild.nodeValue === 'click me') {
+                   button.firstChild.nodeValue = 'this is button. clicked!';
+                } else {
+                    button.firstChild.nodeValue = 'click me';
+                }
+            }
+        </script>
+    ```
 
 - 스크립팅 분리 이벤트 제거
 >  - **el.onclick = null;**
 >  - 예시 )
 >
     ```html
-				<button type="button" class="look-at-button">
-					Look
-				</button>
+        <button type="button" class="look-at-button">
+            Look
+        </button>
     ```
->
+  >
     ```javascript
         <script>
             (function(global) {
                 'use strict';
->
+    >
                 var look_at_button = document.querySelector('.look-at-button');
->
+    >
                 // 버튼을 몇 회 이상 클릭한 후에는 버튼을 사용자가 클릭할 수 없게 만들고자 한다.
                 // 버튼을 클릭한 횟수를 기억할 변수
                 var click_count = 0;
->
+    >
                 // [이벤트 연결] 이벤트 속성에 함수 값 연결
                 look_at_button.onclick = function() {
                     console.log('clicked:', this.onclick);
                     if( ++click_count === 2 ) {
                         // 클릭한 횟수가 2회가 되면 버튼을 사용자가 클릭할 수 없게 만든다.
                         // this.setAttribute('disabled', 'disabled');  // this = look_at_button
->
+        >
                         // [이벤트 제거] 이벤트 속성에 null 대입함으로 연결괸 함수를 끊음
                         this.onclick = null;  // 참조한 함수를 끊고 null 대입
                         console.log('finished:', this.onclick);
@@ -414,11 +413,11 @@
     ```
 >
     ```html
-			<body>
-				<div class="circle-50"></div>
-				<div class="circle-100"></div>
-				<div class="circle-1000"></div>
-			</body>
+        <body>
+          <div class="circle-50"></div>
+          <div class="circle-100"></div>
+          <div class="circle-1000"></div>
+        </body>
     ```
 
 - 포커스(Focus)
