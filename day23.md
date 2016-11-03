@@ -198,10 +198,54 @@
     ```
   >
     ```
+      <script>
+        (function(global) {
+          'use strict';
+  >
+          var look_at_button = document.querySelector('.look-at-button');
+  >
+          // 버튼을 몇 회 이상 클릭한 후에는 버튼을 사용자가 클릭할 수 없게 만들고자 한다.
+          // 버튼을 클릭한 횟수를 기억할 변수
+          var click_count = 0;
+  >
+          // [이벤트 연결] 이벤트 속성에 함수 값 연결
+          look_at_button.onclick = function() {
+            console.log('clicked:', this.onclick);
+            if( ++click_count === 2 ) {
+              // 클릭한 횟수가 2회가 되면 버튼을 사용자가 클릭할 수 없게 만든다.
+              // this.setAttribute('disabled', 'disabled');  // this = look_at_button
+  >
+              // [이벤트 제거] 이벤트 속성에 null 대입함으로 연결괸 함수를 끊음
+              this.onclick = null;  // 참조한 함수를 끊고 null 대입
+              console.log('finished:', this.onclick);
+            }
+          }
+        })(this);
+      </script>
     ```
 
+
 ##### 1.1.2. 인터페이스(Interface) 이벤트
- -
+ - 로드(Load)
+>	- window.onload
+>    - DOM이 완성된 이후, 이벤트 감지
+>    - 늦게 실행 됨(이미지를 전부 불러와야 실행됨 )
+>    - 예시 )
+>    
+>   \*\* init() : 애플리케이션 초기화 (initialization()) 
+>
+	>
+        <button type="button" class="look-at-button">
+            Look
+        </button>
+		
+	>
+ - 언로드(Un Load)
+ - 에러(Error)
+ - 리사이즈(Resize)
+ - 스크롤(Scroll)
+ - 포커스(Focus)
+ - 블러(Blur)
 >
 > - 예시 )
 
@@ -216,6 +260,20 @@
 
 
 ----
+
+##### Math
+ - Math.random()
+ 	- 랜덤하게 0~1 사이의 실수를 난수로 반환.
+ 	- Math.random(10) 형식으로 사용하면 안됨.
+ 	- Math.random() * 10 형식으로 사용해야 함.
+ - Math.floor()
+ 	- 내림
+ - Math.round()
+ 	- 반올림
+ - Math.ceil()
+ 	- 올림
+ - Math.floor( Math.random() * 10 ) : 10까지 랜덤으로 숫자를 반환하게 해줄 수 있음
+
 
 ##### Function.prototype 객체의 능력(Methods)
  \- 함수 객체의 메소드
