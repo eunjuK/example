@@ -327,7 +327,7 @@
   - *scrollTo(xpos, ypos)*
   - *scrollX*
   - *scrollY*
-
+~~~
   - **parallax scroll native**
     	```css
 		<style media="screen">
@@ -417,7 +417,7 @@
 		    <div class="circle-1000"></div>
 		</body>
 	```
-
+~~~
 
 - 포커스(Focus)
  - **window.onfocus**
