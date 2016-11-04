@@ -329,7 +329,7 @@
   - *scrollY*
 ~~~
   - **parallax scroll native**
-    	```css
+    	css
 		<style media="screen">
 		    html {
 				overflow-x: hidden;
@@ -355,8 +355,8 @@
 				background: hsla(0, 0%, 95%, 0.6)
 		    }
 		</style>
-	```
-	```javascript
+	
+	javascript
 		<script>
 		    (function(){
 				'use strict';
@@ -409,8 +409,8 @@
 				window.onload = init;
 		     })(this);
 		</script>
-	```
-	```html
+	
+	html
 		<body>
 		    <div class="circle-50"></div>
 		    <div class="circle-100"></div>
