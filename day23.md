@@ -329,7 +329,6 @@
   - *scrollY*
 
   - **parallax scroll native**
->
     	```css
 		<style media="screen">
 		    html {
@@ -357,7 +356,6 @@
 		    }
 		</style>
 	```
->
 	```javascript
 		<script>
 		    (function(){
@@ -412,7 +410,6 @@
 		     })(this);
 		</script>
 	```
->
 	```html
 		<body>
 		    <div class="circle-50"></div>
@@ -420,6 +417,7 @@
 		    <div class="circle-1000"></div>
 		</body>
 	```
+
 
 - 포커스(Focus)
  - **window.onfocus**
