@@ -69,7 +69,7 @@
       > \- button이라는 매개변수로 onclick을 가리키는 this 값을 받아 사용
 
  - 스크립팅 분리 이벤트 추가
-  - **el.onclick = fnNmae; or el.onclick = function(e) {...};**
+  - **el.onclick = fnName; or el.onclick = function(e) {...};**
   - 전통 방식 (현재 사용 방식)
   - 예시 )
 
@@ -108,7 +108,6 @@
               Look
           </button>
       ```
-    > \- window = this /  look_at_button = argument
 
       ```javascript
           <script>
@@ -129,6 +128,7 @@
               })(this);
           </script>
       ```
+    > \- window = this /  look_at_button = argument
 
    **방법 2.**
 
@@ -357,7 +357,7 @@
 		    }
 		</style>
 	
-	[ javascript ]
+		[ javascript ]
 		<script>
 		    (function(){
 				'use strict';
@@ -411,7 +411,7 @@
 		     })(this);
 		</script>
 	
-	[ html ]
+		[ html ]
 		<body>
 		    <div class="circle-50"></div>
 		    <div class="circle-100"></div>
