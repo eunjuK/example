@@ -358,23 +358,22 @@
 		</style>
 	```
 >
->
 	```javascript
 		<script>
 		    (function(){
 				'use strict';
->
+
 				/** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
 				function getRandomNumber(number) {
 				    return Math.floor(Math.random() * number);
 				}
->
+
 				// circle 객체 위치 임의 설정 함수
 				function randomCirclePosition() {
 				    // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
 				    var circles = document.querySelectorAll('[class*="circle-"]');
 				    // console.log('circles:', circles);
->
+
 				    // 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
 				    // 랜덤하게 화면의 곳곳에 배치(x, y)
 				    for ( var i=0, l=circles.length; i<l; i++ ) {
@@ -385,7 +384,7 @@
 						circle.style.opacity = 1;
 				    }
 				 }
->
+
 				// 패럴럭스 이벤트 제어 함수
 				function circleParallaxScroll() {
 				    var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
@@ -399,7 +398,7 @@
 						circle.style.top = top + (scroll_y/300 * x) + 'px';
 				    }
 				}
->
+
 				// 애플리케이션 초기화
 				function init() {
 				    // circle 객체의 위치를 임의로 설정함수실행
@@ -413,7 +412,7 @@
 		     })(this);
 		</script>
 	```
-		
+>
 	```html
 		<body>
 		    <div class="circle-50"></div>
