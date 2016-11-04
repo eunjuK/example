@@ -328,8 +328,8 @@
   - *scrollX*
   - *scrollY*
 
- - **parallax scroll native**
-
+  - **parallax scroll native**
+>
     	```css
 		<style media="screen">
 		    html {
@@ -357,23 +357,24 @@
 		    }
 		</style>
 	```
-
+>
+>
 	```javascript
 		<script>
 		    (function(){
 				'use strict';
-
+>
 				/** @function getRandomNumber 임의의 숫자(정수)를 반환하는 함수 */
 				function getRandomNumber(number) {
 				    return Math.floor(Math.random() * number);
 				}
-
+>
 				// circle 객체 위치 임의 설정 함수
 				function randomCirclePosition() {
 				    // 초기화 과정에서는 문서에 존재하는 [class*="circle-"] 문서 객체를 수집
 				    var circles = document.querySelectorAll('[class*="circle-"]');
 				    // console.log('circles:', circles);
-
+>
 				    // 수집된 circle 객체에 공통적으로 absolute 포지션을 설정 후,
 				    // 랜덤하게 화면의 곳곳에 배치(x, y)
 				    for ( var i=0, l=circles.length; i<l; i++ ) {
@@ -384,7 +385,7 @@
 						circle.style.opacity = 1;
 				    }
 				 }
-
+>
 				// 패럴럭스 이벤트 제어 함수
 				function circleParallaxScroll() {
 				    var scroll_y = this.scrollY || this.pageYOfsset || this.scrollTop;
@@ -398,7 +399,7 @@
 						circle.style.top = top + (scroll_y/300 * x) + 'px';
 				    }
 				}
-
+>
 				// 애플리케이션 초기화
 				function init() {
 				    // circle 객체의 위치를 임의로 설정함수실행
@@ -421,12 +422,11 @@
 		</body>
 	```
 
-
 - 포커스(Focus)
  - **window.onfocus**
   - 요소가 포커스 되었을 때, 이벤트 감지
   - 예전에는 악용되어 사용되기도 함
-
+  
 - 블러(Blur)
  - **window.onblur**
  	- 요소가 블러 되었을 때, 이벤트 감지
@@ -546,7 +546,7 @@
    - **부모에서 자식으로** 이벤트 전달
    - 클릭가능 유형이 겹칠때 이벤트가 전파됨
 
-![capture](http://take.ms/uYqzK)
+![capture](capture.png)
  - **버블(Bubble)**
    - **자식에서 부모로** 이벤트 전달
    - 구형은 Bubble (IE 6-8)만 지원
