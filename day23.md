@@ -327,9 +327,10 @@
   - *scrollTo(xpos, ypos)*
   - *scrollX*
   - *scrollY*
-~~~
+
   - **parallax scroll native**
-    	css
+~~~  
+    	[ css ]
 		<style media="screen">
 		    html {
 				overflow-x: hidden;
@@ -356,7 +357,7 @@
 		    }
 		</style>
 	
-	javascript
+	[ javascript ]
 		<script>
 		    (function(){
 				'use strict';
@@ -410,13 +411,12 @@
 		     })(this);
 		</script>
 	
-	html
+	[ html ]
 		<body>
 		    <div class="circle-50"></div>
 		    <div class="circle-100"></div>
 		    <div class="circle-1000"></div>
 		</body>
-	```
 ~~~
 
 - 포커스(Focus)
